@@ -20,9 +20,11 @@ import gallerythumb04 from "../../images/home images/gallery-thumb04.jpg";
 import gallerythumb05 from "../../images/home images/gallery-thumb05.jpg";
 import gallerythumb06 from "../../images/home images/gallery-thumb06.jpg";
 import sideimage01 from "../../images/home images/side-image01.jpg";
-
 import sectionShape from "../../images/home images/section-title-shape.png";
+import icon7 from "../../images/home images/icon07.png";
+import icon8 from "../../images/home images/icon08.png";
 import { Box } from "@mui/system";
+import TrainingClass from "../TrainingClass/TrainingClass";
 
 const Home = () => {
   return (
@@ -302,6 +304,34 @@ const Home = () => {
               </div>
             </Grid>
           </Grid>
+        </Container>
+      </div>
+      <TrainingClass></TrainingClass>
+      <div id="membership" style={{backgroundColor:"#000"}}>
+        <Container sx={{py:10}}>
+          <Grid container spacing={8} sx={{textAlign:"center",mb:8}}>
+          <Grid item lg={6} md={6} sm={6} xs={12}>
+                <Box
+                sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}
+                >
+                  <img style={{width:"20%"}} src={icon7} alt="" />
+                  <Typography variant="h4" sx={{textTransform:"uppercase",color:"#fff",py:2}}>Team Membership</Typography>
+                  <Typography variant="body2" sx={{color:"#fff"}}>Unlimited access to you choosen gym and <br /> thousands of others at the same price or less <br /> plus online classes with Fit.</Typography>
+                </Box>
+          </Grid>
+          <Grid item lg={6} md={6} sm={6} xs={12}>
+          <Box
+                sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}
+                >
+                  <img style={{width:"20%"}} src={icon8} alt="" />
+                  <Typography variant="h4" sx={{textTransform:"uppercase",color:"#fff",py:2}}>month-to-month</Typography>
+                  <Typography variant="body2" sx={{color:"#fff"}}>Unlimited access to you choosen gym and <br /> thousands of others at the same price or less <br /> plus online classes with Fit.</Typography>
+                </Box>
+          </Grid>
+          </Grid>
+         <div style={{textAlign:"center"}}>
+         <button className="slide-button">Explore Our Passes</button>
+         </div>
         </Container>
       </div>
     </div>
