@@ -4,8 +4,8 @@ import React from 'react';
 
 const Login = () => {
     return (
-        <>
-            <Box sx={{ margin: 'auto', p: 8, border: '2px solid black', width: "320px" }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1px solid black', height: '100%' }}>
+            <Box sx={{ p: 8, width: "320px", backgroundColor: '#eee' }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                     <FormControl variant="standard">
                         <InputLabel htmlFor="email">Email</InputLabel>
@@ -15,10 +15,10 @@ const Login = () => {
                         <InputLabel htmlFor="password">Password</InputLabel>
                         <Input id="password" />
                     </FormControl>
-                    <Button variant="contained" sx={{ mt: 8 }}>Contained</Button>
+                    <Button variant="contained" sx={{ mt: 8 }}>Login</Button>
                 </Box>
             </Box>
-        </>
+        </Box>
     );
 };
 
