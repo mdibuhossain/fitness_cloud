@@ -2,7 +2,7 @@ import { Button, FormControl, Input, InputLabel, Typography } from '@mui/materia
 import { Box } from '@mui/system';
 import React from 'react';
 
-const Login = () => {
+const Register = () => {
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
             <Box sx={{ p: 8, width: "500px" }}>
@@ -15,12 +15,16 @@ const Login = () => {
                         <InputLabel htmlFor="password">Password</InputLabel>
                         <Input id="password" />
                     </FormControl>
-                    <Button variant="contained" sx={{ mt: 8 }}>Login</Button>
-                    <Typography variant='subtitle' sx={{ mt: 1 }}>Don't have an account? <a href="#">Sign up</a></Typography>
+                    <FormControl variant="standard" sx={{ mt: 3 }}>
+                        <InputLabel htmlFor="confirmPassword">Confirm Password</InputLabel>
+                        <Input id="confirmPassword" />
+                    </FormControl>
+                    <Button variant="contained" sx={{ mt: 8 }}>Register</Button>
+                    <Typography variant='subtitle' sx={{ mt: 1 }}>Already have an account? <a href="#">Sign in</a></Typography>
                 </Box>
             </Box>
         </Box>
     );
 };
 
-export default Login;
+export default Register;
