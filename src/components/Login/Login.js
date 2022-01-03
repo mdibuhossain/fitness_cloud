@@ -39,7 +39,7 @@ const LogIn = () => {
                         </FormControl>
                         <FormControl variant="standard" sx={{ mt: 3 }}>
                             <InputLabel>Password</InputLabel>
-                            <Input onBlur={handleUserInput} name="password" type="password" />
+                            <Input onChange={handleUserInput} name="password" type="password" />
                         </FormControl>
                         <Button type="submit" variant="contained" sx={{ mt: 8 }}>
                             {

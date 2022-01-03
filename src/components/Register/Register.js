@@ -29,7 +29,7 @@ const Register = () => {
     }
     // console.log(user);
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1px solid black', minHeight: '100vh' }}>
             <Box sx={{ p: 8, width: "500px" }}>
                 <form onSubmit={handleSubmitRegister}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
