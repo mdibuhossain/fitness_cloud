@@ -2,7 +2,7 @@ import { Button, CircularProgress, FormControl, Input, InputLabel, Typography } 
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useFirebase } from '../../Hooks/useFirebase';
 import gym1 from '../../assets/gym1.jpg';
 import { selectIsLoading } from '../../features/isloadingSlice';

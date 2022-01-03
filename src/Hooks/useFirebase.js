@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app'
 import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from 'firebase/auth'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { selectIsLoading, setIsLoading } from '../features/isloadingSlice';
 import { login, selectUser } from '../features/userSlice';
 import initAuth from '../Firebase/initAuth';
@@ -10,9 +11,16 @@ initAuth();
 
 export const useFirebase = () => {
     const auth = getAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const user = useSelector(selectUser);
     const isLoading = useSelector(selectIsLoading);
+
+    const Redirect = () => {
+        const destination = location?.state?.from?.pathname || '/';
+        navigate(destination);
+    }
 
     const signWithGoogle = () => {
         dispatch(setIsLoading(true));
@@ -20,6 +28,7 @@ export const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then(authUser => {
                 dispatch(login({ ...authUser.user }));
+                Redirect();
             }).catch(error => alert(error.message))
             .finally(() => dispatch(setIsLoading(false)))
     }
@@ -31,7 +40,8 @@ export const useFirebase = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL
                 }).then(() => { })
-                dispatch(login({ displayName: name, email, photoURL }))
+                dispatch(login({ displayName: name, email, photoURL }));
+                Redirect();
             }).catch(error => alert(error.message))
             .finally(() => dispatch(setIsLoading(false)))
     }
@@ -41,6 +51,7 @@ export const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then(userAuth => {
                 dispatch(login({ ...userAuth?.user }));
+                Redirect();
             }).catch(error => alert(error.message))
             .finally(() => dispatch(setIsLoading(false)))
     }
@@ -50,6 +61,7 @@ export const useFirebase = () => {
         signOut(auth)
             .then(() => {
                 dispatch(login({}))
+                Redirect();
             }).catch(error => alert(error.message))
             .finally(() => dispatch(setIsLoading(false)))
     }

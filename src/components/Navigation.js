@@ -154,7 +154,7 @@ const Navigation = () => {
                                     ))}
                                 </Menu>
                             </Box>
-                        ) : <NavLink to='/' style={{ textDecoration: 'none', color: 'inherit' }}><Button variant=''>Login</Button></NavLink>
+                        ) : <NavLink to='/login' style={{ textDecoration: 'none', color: 'inherit' }}><Button variant=''>Login</Button></NavLink>
                     }
                 </Toolbar>
             </Container>
