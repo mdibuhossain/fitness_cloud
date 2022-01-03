@@ -52,6 +52,9 @@
   font-size: 18px;
   font-family: "Mohave", sans-serif;
 }
+.slide-button:hover{
+  cursor: pointer;
+}
 @media (max-width: 991px) {
   .swiper-button-next,
   .swiper-button-prev {
