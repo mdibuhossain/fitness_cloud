@@ -20,7 +20,8 @@ const ClassCard = (props) => {
             </Button>
           </div>
         </Paper>
-        <Typography variant="h6">Training Name</Typography>
+        <Typography variant="h5" style={{fontWeight:"bold"}}>Training Name</Typography>
+        <Typography variant="body2">Smart + Effective Bodyweight Training.</Typography>
       </Grid>
     </>
   );
