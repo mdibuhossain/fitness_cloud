@@ -22,12 +22,13 @@ const LogIn = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         logIn(userInput.email, userInput.password);
+        e.target.reset();
     }
     // console.log(user);
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
             <Box sx={{ p: 8, width: "500px" }}>
-                <form>
+                <form onSubmit={handleLogin}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
                         <Box sx={{ mb: 5 }}>
                             <img style={{ width: 'calc(100% - 50px)' }} src={gym1} alt="" />
@@ -40,7 +41,7 @@ const LogIn = () => {
                             <InputLabel>Password</InputLabel>
                             <Input onBlur={handleUserInput} name="password" type="password" />
                         </FormControl>
-                        <Button onClick={handleLogin} type="submit" variant="contained" sx={{ mt: 8 }}>
+                        <Button type="submit" variant="contained" sx={{ mt: 8 }}>
                             {
                                 isLoading ? <CircularProgress color="inherit" size="25px" /> : 'Login'
                             }

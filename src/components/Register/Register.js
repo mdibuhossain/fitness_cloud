@@ -25,18 +25,16 @@ const Register = () => {
             return;
         }
         userRegister(userInput.name, userInput.photoURL, userInput.email, userInput.password);
+        e.target.reset();
     }
     // console.log(user);
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
             <Box sx={{ p: 8, width: "500px" }}>
-                <form>
+                <form onSubmit={handleSubmitRegister}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
                         <Box sx={{ mb: 5 }}>
-                            {
-                                isLoading && <CircularProgress color="inherit" />
-                            }
-                            {/* <img style={{ width: 'calc(100% - 60px)' }} src={register1} alt="" /> */}
+                            <img style={{ width: 'calc(100% - 60px)' }} src={register1} alt="" />
                         </Box>
                         <FormControl variant="standard">
                             <InputLabel>Full Name</InputLabel>
@@ -58,7 +56,7 @@ const Register = () => {
                             <InputLabel>Profile Photo URL (optional)</InputLabel>
                             <Input onBlur={handleUserInput} name="photoURL" type="text" />
                         </FormControl>
-                        <Button type="submit" onClick={handleSubmitRegister} variant="contained" sx={{ mt: 5 }}>
+                        <Button type="submit" variant="contained" sx={{ mt: 5 }}>
                             {
                                 isLoading ? <CircularProgress color="inherit" size="25px" /> : 'Register'
                             }
