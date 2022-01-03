@@ -12,14 +12,14 @@ const PageNotFound = () => {
             <Box>
                 <Grid container spacing={3} rowSpacing={6} sx={{ alignItems: 'center' }}>
                     <Grid item xs={12} sm={6}>
-                        <Box>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', sm: 'start' } }}>
                             <span style={{ fontSize: '9rem' }}>
                                 404
                             </span>
                         </Box>
                     </Grid>
                     <Grid item xs={12} sm={6} sx={{ borderLeft: '2px solid black' }}>
-                        <Box>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', sm: 'start' } }}>
                             <Typography variant='h3'>
                                 SORRY!
                             </Typography>
