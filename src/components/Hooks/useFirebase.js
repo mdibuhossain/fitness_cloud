@@ -21,14 +21,15 @@ export const useFirebase = () => {
             }).catch(error => alert(error.message))
     }
 
-    const userRegister = (displayName, photoURL, email, password) => {
+    const userRegister = (name, photoURL, email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
+                console.log(auth.currentUser);
                 updateProfile(auth.currentUser, {
-                    displayName, photoURL
+                    photoURL, displayName: name
                 }).then(() => {
-                    dispatch(login({ email, displayName, photoURL }))
-                }).catch(error => alert(error.message));
+                    dispatch(login({ displayName: name, email, photoURL }))
+                })
             }).catch(error => alert(error.message))
     }
 
@@ -42,13 +43,13 @@ export const useFirebase = () => {
     const logOut = () => {
         signOut(auth)
             .then(() => {
-                dispatch(login({}));
+                dispatch(login({}))
             }).catch(error => alert(error.message))
     }
 
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 dispatch(login({ ...user }))
             }
@@ -56,6 +57,7 @@ export const useFirebase = () => {
                 dispatch(login({}))
             }
         })
+        return () => unsubscribe;
     }, [auth])
 
     return {

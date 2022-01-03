@@ -13,13 +13,13 @@ const Login = () => {
         const tmpData = { ...userInput };
         tmpData[e.target.name] = e.target.value;
         setUserInput(tmpData);
-        console.log(userInput);
+        // console.log(userInput);
     }
     const handleLogin = (e) => {
         e.preventDefault();
         logIn(userInput.email, userInput.password);
     }
-    console.log(user);
+    // console.log(user);
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
             <Box sx={{ p: 8, width: "500px" }}>
