@@ -4,11 +4,12 @@ import Register from './components/Register/Register';
 import {
   BrowserRouter,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import LogIn from './components/Login/LogIn';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import Test from './components/test/test';
+import RequireAuth from './components/ProtectedRoute/RequireAuth';
 
 function App() {
   return (
@@ -17,7 +18,10 @@ function App() {
         <Navigation />
         <Routes>
           <Route path='*' element={<PageNotFound />} />
-          <Route path="/" element={<LogIn />} />
+          <Route path="/test" element={<RequireAuth>
+            <Test />
+          </RequireAuth>} />
+          <Route path="/login" element={<LogIn />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>

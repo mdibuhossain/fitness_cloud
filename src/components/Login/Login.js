@@ -3,7 +3,6 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { selectUser } from '../../features/userSlice';
 import { useFirebase } from '../../Hooks/useFirebase';
 import gym1 from '../../assets/gym1.jpg';
 import { selectIsLoading } from '../../features/isloadingSlice';
@@ -11,7 +10,6 @@ import { selectIsLoading } from '../../features/isloadingSlice';
 const LogIn = () => {
     const { logIn } = useFirebase();
     const [userInput, setUserInput] = useState({});
-    const user = useSelector(selectUser);
     const isLoading = useSelector(selectIsLoading);
     const handleUserInput = (e) => {
         const tmpData = { ...userInput };
