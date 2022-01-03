@@ -1,4 +1,4 @@
-import { Button, FormControl, Input, InputLabel, Typography } from '@mui/material';
+import { Button, CircularProgress, FormControl, Input, InputLabel, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -6,11 +6,12 @@ import { NavLink } from 'react-router-dom';
 import { selectUser } from '../../features/userSlice';
 import { useFirebase } from '../../Hooks/useFirebase';
 import register1 from '../../assets/register1.jpg';
+import { selectIsLoading } from '../../features/isloadingSlice';
 
 const Register = () => {
     const { userRegister } = useFirebase();
     const [userInput, setUserInput] = useState({});
-    const user = useSelector(selectUser);
+    const isLoading = useSelector(selectIsLoading);
     const handleUserInput = (e) => {
         const tmpData = { ...userInput };
         tmpData[e.target.name] = e.target.value;
@@ -32,7 +33,10 @@ const Register = () => {
                 <form>
                     <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
                         <Box sx={{ mb: 5 }}>
-                            <img style={{ width: 'calc(100% - 60px)' }} src={register1} alt="" />
+                            {
+                                isLoading && <CircularProgress color="inherit" />
+                            }
+                            {/* <img style={{ width: 'calc(100% - 60px)' }} src={register1} alt="" /> */}
                         </Box>
                         <FormControl variant="standard">
                             <InputLabel>Full Name</InputLabel>
@@ -54,7 +58,11 @@ const Register = () => {
                             <InputLabel>Profile Photo URL (optional)</InputLabel>
                             <Input onBlur={handleUserInput} name="photoURL" type="text" />
                         </FormControl>
-                        <Button type="submit" onClick={handleSubmitRegister} variant="contained" sx={{ mt: 5 }}>Register</Button>
+                        <Button type="submit" onClick={handleSubmitRegister} variant="contained" sx={{ mt: 5 }}>
+                            {
+                                isLoading ? <CircularProgress color="inherit" size="25px" /> : 'Register'
+                            }
+                        </Button>
                         <Typography variant='subtitle' sx={{ mt: 2 }}>Already have an account? <NavLink to="/">Sign in</NavLink></Typography>
                     </Box>
                 </form>

@@ -11,16 +11,20 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import CircularProgress from '@mui/material/CircularProgress';
 import { useSelector } from 'react-redux';
 import { useFirebase } from '../Hooks/useFirebase';
 import { selectUser } from '../features/userSlice';
+import { selectIsLoading } from '../features/isloadingSlice';
+import { NavLink } from 'react-router-dom';
 
 const pages = ['Home', 'Schedule', 'Classes', 'Contact us'];
 
 
 const Navigation = () => {
-    const user = useSelector(selectUser);
     const { logOut } = useFirebase();
+    const user = useSelector(selectUser);
+    const isLoading = useSelector(selectIsLoading)
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const settings = [
@@ -116,14 +120,15 @@ const Navigation = () => {
                             </Button>
                         ))}
                     </Box>
-
                     {
                         user?.email ? (
                             <Box sx={{ flexGrow: 0 }}>
                                 <Typography variant='button' sx={{ display: 'inline', mr: 2 }}>{user.displayName}</Typography>
                                 <Tooltip title="Open settings">
                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                        <Avatar alt="Remy Sharp" src={user.photoURL} />
+                                        {isLoading ? <CircularProgress color="inherit" />
+                                            : <Avatar alt="avatar" src={user.photoURL} />
+                                        }
                                     </IconButton>
                                 </Tooltip>
                                 <Menu
@@ -149,7 +154,7 @@ const Navigation = () => {
                                     ))}
                                 </Menu>
                             </Box>
-                        ) : <Button variant=''>Login</Button>
+                        ) : <NavLink to='/' style={{ textDecoration: 'none', color: 'inherit' }}><Button variant=''>Login</Button></NavLink>
                     }
                 </Toolbar>
             </Container>
