@@ -2,7 +2,7 @@ import { Button, CircularProgress, FormControl, Input, InputLabel, Typography } 
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useFirebase } from '../../Hooks/useFirebase';
 import gym1 from '../../assets/gym1.jpg';
 import { selectIsLoading } from '../../features/isloadingSlice';
@@ -21,14 +21,12 @@ const LogIn = () => {
         const tmpData = { ...userInput };
         tmpData[e.target.name] = e.target.value;
         setUserInput(tmpData);
-        // console.log(userInput);
     }
     const handleLogin = (e) => {
         e.preventDefault();
         logIn(userInput.email, userInput.password);
         e.target.reset();
     }
-    // console.log(user);
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
             <Box sx={{ p: 8, width: "500px" }}>

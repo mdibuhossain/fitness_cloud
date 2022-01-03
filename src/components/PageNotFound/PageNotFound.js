@@ -2,7 +2,6 @@ import { Button, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { useFirebase } from '../../Hooks/useFirebase';
 
 const PageNotFound = () => {
