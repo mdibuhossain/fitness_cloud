@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./Carousel.css";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -42,7 +43,9 @@ const Carousel = () => {
               <Typography sx={{py:4}} variant="h6" color="white">
                 Experience our Revoulutionary J30 Classes
               </Typography>
+              <Link to="/trainingservices">
               <button className="slide-button">Discover More</button>
+              </Link>
             </Container>
           </div>
         </SwiperSlide>
@@ -60,7 +63,9 @@ const Carousel = () => {
               <Typography sx={{py:4}} variant="h6" color="white">
                 Group Fitness Classes and Personal Training
               </Typography>
+              <Link to="/trainingservices">
               <button className="slide-button">Discover More</button>
+              </Link>
             </Container>
           </div>
         </SwiperSlide>
@@ -78,7 +83,9 @@ const Carousel = () => {
               <Typography sx={{py:4}} variant="h6" color="white">
                 Profesional Heavy duty commercial guide
               </Typography>
+              <Link to="/trainingservices">
               <button className="slide-button">Discover More</button>
+              </Link>
             </Container>
           </div>
         </SwiperSlide>

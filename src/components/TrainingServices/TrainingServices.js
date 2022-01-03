@@ -4,6 +4,7 @@ import cover from '../../images/home images/slide03.jpg';
 import cover2 from '../../images/home images/help-light-img.jpg';
 import ClassCard from "../TrainingClass/ClassCard/ClassCard";
 import { ChangeTitle } from "../../utilities/TabFunction";
+import { Link } from "react-router-dom";
 
 const TrainingServices = () => {
   // call title function
@@ -61,7 +62,9 @@ const TrainingServices = () => {
         <Typography variant="h4" sx={{textTransform:"uppercase",fontWeight:"bold",pb:2}}>HELPING YOU TO GO <br /> <span style={{color:"#f42828"}}> SINCE 1971</span></Typography>
         <Typography sx={{mb:4}} style={{textAlign:"justify"}} variant="body2">World is committed to making participation in the event a harassment <br /> free experience for everyone, regardless of level of experience.</Typography>
         <div>
+        <Link to="/contact">
         <button className="slide-button">Join Classes +</button>
+        </Link>
         </div>
         </Container>
       </div>
