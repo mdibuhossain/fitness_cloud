@@ -18,7 +18,12 @@ import { selectUser } from '../features/userSlice';
 import { selectIsLoading } from '../features/isloadingSlice';
 import { NavLink } from 'react-router-dom';
 
-const pages = ['Home', 'Schedule', 'Classes', 'Contact us'];
+const pages = [
+    { title: 'Home', to: '/home' },
+    { title: 'Schedule', to: '/schedule' },
+    { title: 'Classes', to: '/classes' },
+    { title: 'Contact us', to: '/contact' }
+];
 
 
 const Navigation = () => {
@@ -94,10 +99,12 @@ const Navigation = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
+                            {pages.map((page, index) => (
+                                <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to={page.to}>
+                                    <MenuItem key={index} onClick={handleCloseNavMenu}>
+                                        {page.title}
+                                    </MenuItem>
+                                </NavLink>
                             ))}
                         </Menu>
                     </Box>
@@ -110,14 +117,15 @@ const Navigation = () => {
                         FITNESS
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
+                        {pages.map((page, index) => (
+                            <NavLink key={index} to={page.to} style={{ textDecoration: 'none' }}>
+                                <Button
+                                    onClick={handleCloseNavMenu}
+                                    sx={{ my: 2, color: 'white' }}
+                                >
+                                    {page.title}
+                                </Button>
+                            </NavLink>
                         ))}
                     </Box>
                     {

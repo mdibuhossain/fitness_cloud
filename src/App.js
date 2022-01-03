@@ -19,6 +19,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/test" element={<RequireAuth>
             <Test />
           </RequireAuth>} />
