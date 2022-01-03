@@ -1,10 +1,9 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
 import { useState } from 'react';
-import { firebaseConfig } from '../../Firebase/FirebaseConfig'
+import initAuth from '../../Firebase/initAuth';
 
-
-initializeApp(firebaseConfig);
+initAuth();
 
 export const useFirebase = () => {
     const auth = getAuth();
@@ -19,11 +18,11 @@ export const useFirebase = () => {
             }).catch(error => alert(error.message))
     }
 
-    const userRegister = (name, email, password) => {
+    const userRegister = (displayName, email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser({
-                    email, displayName: name
+                    email, displayName
                 })
             }).catch(error => alert(error.message))
     }
