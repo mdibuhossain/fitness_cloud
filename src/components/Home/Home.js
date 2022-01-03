@@ -204,6 +204,7 @@ const Home = () => {
           </Grid>
         </Container>
       </div>
+      <TrainingClass></TrainingClass>
       <div
         id="workoutway"
         style={{ backgroundColor: "#f42828", color: "#fff" }}
@@ -306,7 +307,6 @@ const Home = () => {
           </Grid>
         </Container>
       </div>
-      <TrainingClass></TrainingClass>
       <div id="membership" style={{backgroundColor:"#000"}}>
         <Container sx={{py:10}}>
           <Grid container spacing={8} sx={{textAlign:"center",mb:8}}>

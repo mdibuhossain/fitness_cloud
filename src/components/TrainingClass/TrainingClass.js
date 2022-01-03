@@ -44,7 +44,7 @@ const TrainingClass = () => {
         </Container>
       </Box>
       <Container>
-        <Grid container spacing={4} sx={{ py: 8 }}>
+        <Grid container spacing={4} sx={{ py: 12 }}>
           {training.slice(1, 4).map((train) => (
             <ClassCard key={train.id} train={train}></ClassCard>
           ))}
