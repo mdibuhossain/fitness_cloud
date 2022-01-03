@@ -2,10 +2,12 @@ import { Button, FormControl, Input, InputLabel, Typography } from '@mui/materia
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { selectUser } from '../../features/userSlice';
 import { useFirebase } from '../../Hooks/useFirebase';
+import gym1 from '../../assets/gym1.jpg';
 
-const Login = () => {
+const LogIn = () => {
     const { logIn } = useFirebase();
     const [userInput, setUserInput] = useState({});
     const user = useSelector(selectUser);
@@ -25,6 +27,9 @@ const Login = () => {
             <Box sx={{ p: 8, width: "500px" }}>
                 <form>
                     <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
+                        <Box sx={{mb: 5}}>
+                            <img style={{ width: 'calc(100% - 50px)' }} src={gym1} alt="" />
+                        </Box>
                         <FormControl variant="standard">
                             <InputLabel>Email</InputLabel>
                             <Input onBlur={handleUserInput} name="email" type="email" />
@@ -34,7 +39,7 @@ const Login = () => {
                             <Input onBlur={handleUserInput} name="password" type="password" />
                         </FormControl>
                         <Button onClick={handleLogin} type="submit" variant="contained" sx={{ mt: 8 }}>Login</Button>
-                        <Typography variant='subtitle' sx={{ mt: 1 }}>Don't have an account? <a href="#">Sign up</a></Typography>
+                        <Typography variant='subtitle' sx={{ mt: 1 }}>Don't have an account? <NavLink to="/register">Sign up</NavLink></Typography>
                     </Box>
                 </form>
             </Box>
@@ -42,4 +47,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LogIn;

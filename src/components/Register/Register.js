@@ -2,8 +2,10 @@ import { Button, FormControl, Input, InputLabel, Typography } from '@mui/materia
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { selectUser } from '../../features/userSlice';
 import { useFirebase } from '../../Hooks/useFirebase';
+import register1 from '../../assets/register1.jpg';
 
 const Register = () => {
     const { userRegister } = useFirebase();
@@ -29,6 +31,9 @@ const Register = () => {
             <Box sx={{ p: 8, width: "500px" }}>
                 <form>
                     <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
+                        <Box sx={{ mb: 5 }}>
+                            <img style={{ width: 'calc(100% - 60px)' }} src={register1} alt="" />
+                        </Box>
                         <FormControl variant="standard">
                             <InputLabel>Full Name</InputLabel>
                             <Input onBlur={handleUserInput} name="name" type="text" />
@@ -50,7 +55,7 @@ const Register = () => {
                             <Input onBlur={handleUserInput} name="photoURL" type="text" />
                         </FormControl>
                         <Button type="submit" onClick={handleSubmitRegister} variant="contained" sx={{ mt: 5 }}>Register</Button>
-                        <Typography variant='subtitle' sx={{ mt: 2 }}>Already have an account? <a href="#">Sign in</a></Typography>
+                        <Typography variant='subtitle' sx={{ mt: 2 }}>Already have an account? <NavLink to="/">Sign in</NavLink></Typography>
                     </Box>
                 </form>
             </Box>
