@@ -1,23 +1,23 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from 'firebase/auth'
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { login } from '../../features/userSlice';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, selectUser } from '../../features/userSlice';
 import initAuth from '../../Firebase/initAuth';
 
 initAuth();
 
 export const useFirebase = () => {
     const auth = getAuth();
-    const [user, setUser] = useState({});
-    const [isLoading, setIsLoading] = useState(false);
     const dispatch = useDispatch();
+    const user = useSelector(selectUser);
+    const [isLoading, setIsLoading] = useState(false);
 
     const signWithGoogle = () => {
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth, googleProvider)
             .then(authUser => {
-                setUser(authUser.user);
+                dispatch(login({ ...authUser.user }));
             }).catch(error => alert(error.message))
     }
 
@@ -42,9 +42,21 @@ export const useFirebase = () => {
     const logOut = () => {
         signOut(auth)
             .then(() => {
-                setUser({});
+                dispatch(login({}));
             }).catch(error => alert(error.message))
     }
+
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                dispatch(login({ ...user }))
+            }
+            else {
+                dispatch(login({}))
+            }
+        })
+    }, [auth])
 
     return {
         user,
