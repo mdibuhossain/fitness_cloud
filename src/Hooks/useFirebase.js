@@ -1,10 +1,9 @@
-import { initializeApp } from 'firebase/app'
 import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from 'firebase/auth'
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { selectIsLoading, setIsLoading } from '../features/isloadingSlice';
-import { login, selectUser } from '../features/userSlice';
+import { setIsLoading } from '../features/isloadingSlice';
+import { login } from '../features/userSlice';
 import initAuth from '../Firebase/initAuth';
 
 initAuth();
@@ -14,8 +13,6 @@ export const useFirebase = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const user = useSelector(selectUser);
-    const isLoading = useSelector(selectIsLoading);
 
     const Redirect = () => {
         const destination = location?.state?.from?.pathname || '/';
@@ -83,10 +80,9 @@ export const useFirebase = () => {
     }, [auth])
 
     return {
-        user,
         logIn,
         logOut,
-        isLoading,
+        Redirect,
         userRegister,
         signWithGoogle,
     }

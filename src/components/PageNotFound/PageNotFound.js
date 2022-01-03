@@ -1,10 +1,12 @@
-import { Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useFirebase } from '../../Hooks/useFirebase';
 
 const PageNotFound = () => {
+    const { Redirect } = useFirebase();
     return (
         <Box sx={{
             height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'
@@ -26,7 +28,7 @@ const PageNotFound = () => {
                             <Typography>
                                 The Page You're Looking For Was Not Found
                             </Typography>
-                            <NavLink to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', fontWeight: '600', marginTop: '5px' }}><ArrowBackIosIcon /> <span>Go Back</span></NavLink>
+                            <Button onClick={Redirect} style={{ display: 'flex', alignItems: 'center', fontWeight: '600', marginTop: '5px' }}><ArrowBackIosIcon /> <span>Go Back</span></Button>
                         </Box>
                     </Grid>
                 </Grid>

@@ -10,6 +10,7 @@ import LogIn from './components/Login/LogIn';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import Test from './components/test/test';
 import RequireAuth from './components/ProtectedRoute/RequireAuth';
+import Home from './components/Home/Home';
 
 function App() {
   return (
@@ -17,12 +18,13 @@ function App() {
       <BrowserRouter>
         <Navigation />
         <Routes>
-          <Route path='*' element={<PageNotFound />} />
+          <Route path="/" element={<Home />} />
           <Route path="/test" element={<RequireAuth>
             <Test />
           </RequireAuth>} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/register" element={<Register />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

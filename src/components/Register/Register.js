@@ -1,6 +1,6 @@
 import { Button, CircularProgress, FormControl, Input, InputLabel, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { selectUser } from '../../features/userSlice';
@@ -9,9 +9,14 @@ import register1 from '../../assets/register1.jpg';
 import { selectIsLoading } from '../../features/isloadingSlice';
 
 const Register = () => {
-    const { userRegister } = useFirebase();
+    const { userRegister, Redirect } = useFirebase();
     const [userInput, setUserInput] = useState({});
     const isLoading = useSelector(selectIsLoading);
+    const user = useSelector(selectUser);
+    useEffect(() => {
+        if (user.email)
+            Redirect();
+    });
     const handleUserInput = (e) => {
         const tmpData = { ...userInput };
         tmpData[e.target.name] = e.target.value;
