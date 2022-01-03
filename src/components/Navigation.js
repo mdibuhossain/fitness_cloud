@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useSelector } from 'react-redux';
-import { useFirebase } from './Hooks/useFirebase';
+import { useFirebase } from '../Hooks/useFirebase';
 import { selectUser } from '../features/userSlice';
 
 const pages = ['Home', 'Schedule', 'Classes', 'Contact us'];

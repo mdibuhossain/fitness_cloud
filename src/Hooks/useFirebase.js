@@ -2,8 +2,8 @@ import { initializeApp } from 'firebase/app'
 import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from 'firebase/auth'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, selectUser } from '../../features/userSlice';
-import initAuth from '../../Firebase/initAuth';
+import { login, selectUser } from '../features/userSlice';
+import initAuth from '../Firebase/initAuth';
 
 initAuth();
 
@@ -24,12 +24,10 @@ export const useFirebase = () => {
     const userRegister = (name, photoURL, email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
-                console.log(auth.currentUser);
                 updateProfile(auth.currentUser, {
-                    photoURL, displayName: name
-                }).then(() => {
-                    dispatch(login({ displayName: name, email, photoURL }))
-                })
+                    displayName: name, photoURL
+                }).then(() => { })
+                dispatch(login({ displayName: name, email, photoURL }))
             }).catch(error => alert(error.message))
     }
 

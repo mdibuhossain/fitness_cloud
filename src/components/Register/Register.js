@@ -3,7 +3,7 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../features/userSlice';
-import { useFirebase } from '../Hooks/useFirebase';
+import { useFirebase } from '../../Hooks/useFirebase';
 
 const Register = () => {
     const { userRegister } = useFirebase();
@@ -21,7 +21,7 @@ const Register = () => {
             alert("Password doesn't match");
             return;
         }
-        userRegister(userInput.displayName, userInput.photoURL, userInput.email, userInput.password);
+        userRegister(userInput.name, userInput.photoURL, userInput.email, userInput.password);
     }
     // console.log(user);
     return (
@@ -31,7 +31,7 @@ const Register = () => {
                     <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
                         <FormControl variant="standard">
                             <InputLabel>Full Name</InputLabel>
-                            <Input onBlur={handleUserInput} name="displayName" type="text" />
+                            <Input onBlur={handleUserInput} name="name" type="text" />
                         </FormControl>
                         <FormControl variant="standard" sx={{ mt: 2 }}>
                             <InputLabel>Email</InputLabel>

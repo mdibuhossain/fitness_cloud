@@ -3,7 +3,7 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../features/userSlice';
-import { useFirebase } from '../Hooks/useFirebase';
+import { useFirebase } from '../../Hooks/useFirebase';
 
 const Login = () => {
     const { logIn } = useFirebase();
