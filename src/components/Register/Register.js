@@ -1,11 +1,14 @@
 import { Button, FormControl, Input, InputLabel, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../features/userSlice';
 import { useFirebase } from '../Hooks/useFirebase';
 
 const Register = () => {
-    const { userRegister, user } = useFirebase();
+    const { userRegister } = useFirebase();
     const [userInput, setUserInput] = React.useState({});
+    const user = useSelector(selectUser);
     const handleRegisterInput = (e) => {
         const tmpData = { ...userInput };
         tmpData[e.target.name] = e.target.value;
@@ -18,7 +21,7 @@ const Register = () => {
             alert("Password doesn't match");
             return;
         }
-        userRegister(userInput.displayName, userInput.email, userInput.password);
+        userRegister(userInput.displayName, userInput.photoURL, userInput.email, userInput.password);
     }
     console.log(user);
     return (
