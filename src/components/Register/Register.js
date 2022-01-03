@@ -1,15 +1,15 @@
 import { Button, FormControl, Input, InputLabel, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../features/userSlice';
 import { useFirebase } from '../Hooks/useFirebase';
 
 const Register = () => {
     const { userRegister } = useFirebase();
-    const [userInput, setUserInput] = React.useState({});
+    const [userInput, setUserInput] = useState({});
     const user = useSelector(selectUser);
-    const handleRegisterInput = (e) => {
+    const handleUserInput = (e) => {
         const tmpData = { ...userInput };
         tmpData[e.target.name] = e.target.value;
         setUserInput(tmpData);
@@ -31,23 +31,23 @@ const Register = () => {
                     <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center' }}>
                         <FormControl variant="standard">
                             <InputLabel>Full Name</InputLabel>
-                            <Input onBlur={handleRegisterInput} name="displayName" type="text" />
+                            <Input onBlur={handleUserInput} name="displayName" type="text" />
                         </FormControl>
                         <FormControl variant="standard" sx={{ mt: 2 }}>
                             <InputLabel>Email</InputLabel>
-                            <Input onBlur={handleRegisterInput} name="email" type="email" />
+                            <Input onBlur={handleUserInput} name="email" type="email" />
                         </FormControl>
                         <FormControl variant="standard" sx={{ mt: 2 }}>
                             <InputLabel>Password</InputLabel>
-                            <Input onBlur={handleRegisterInput} name="password" type="password" />
+                            <Input onBlur={handleUserInput} name="password" type="password" />
                         </FormControl>
                         <FormControl variant="standard" sx={{ mt: 2 }}>
                             <InputLabel>Confirm Password</InputLabel>
-                            <Input onBlur={handleRegisterInput} name="confirmPassword" type="password" />
+                            <Input onBlur={handleUserInput} name="confirmPassword" type="password" />
                         </FormControl>
                         <FormControl variant="standard" sx={{ mt: 2 }}>
                             <InputLabel>Profile Photo URL (optional)</InputLabel>
-                            <Input onBlur={handleRegisterInput} name="photoURL" type="text" />
+                            <Input onBlur={handleUserInput} name="photoURL" type="text" />
                         </FormControl>
                         <Button type="submit" onClick={handleSubmitRegister} variant="contained" sx={{ mt: 5 }}>Register</Button>
                         <Typography variant='subtitle' sx={{ mt: 2 }}>Already have an account? <a href="#">Sign in</a></Typography>

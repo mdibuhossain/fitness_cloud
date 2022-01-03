@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from 'firebase/auth'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/userSlice';
@@ -24,17 +24,18 @@ export const useFirebase = () => {
     const userRegister = (displayName, photoURL, email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
-                dispatch(login({ email, displayName, photoURL }))
-                // setUser({
-                //     email, displayName, photoURL
-                // })
+                updateProfile(auth.currentUser, {
+                    displayName, photoURL
+                }).then(() => {
+                    dispatch(login({ email, displayName, photoURL }))
+                }).catch(error => alert(error.message));
             }).catch(error => alert(error.message))
     }
 
     const logIn = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
             .then(userAuth => {
-                setUser(userAuth.user);
+                dispatch(login({ ...userAuth?.user }));
             }).catch(error => alert(error.message))
     }
 
