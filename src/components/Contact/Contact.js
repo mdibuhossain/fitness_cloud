@@ -1,8 +1,11 @@
 import { Container, Typography } from '@mui/material';
 import React from 'react';
 import cover from '../../images/home images/banner-contact.jpg';
+import { ChangeTitle } from '../../utilities/TabFunction';
 
 const Contact = () => {
+    // call title function
+    ChangeTitle("Contact")
     const banner ={
         background: `url(${cover})`,
         backgroundSize :"cover",

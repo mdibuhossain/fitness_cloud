@@ -3,8 +3,11 @@ import React, { useState,useEffect } from "react";
 import cover from '../../images/home images/slide03.jpg';
 import cover2 from '../../images/home images/help-light-img.jpg';
 import ClassCard from "../TrainingClass/ClassCard/ClassCard";
+import { ChangeTitle } from "../../utilities/TabFunction";
 
 const TrainingServices = () => {
+  // call title function
+  ChangeTitle("Classes");
     const [training, setTraining] = useState([]);
 
   useEffect(() => {

@@ -25,8 +25,11 @@ import icon7 from "../../images/home images/icon07.png";
 import icon8 from "../../images/home images/icon08.png";
 import { Box } from "@mui/system";
 import TrainingClass from "../TrainingClass/TrainingClass";
+import { ChangeTitle } from "../../utilities/TabFunction";
 
 const Home = () => {
+  // call title function
+  ChangeTitle("Home");
   return (
     <div>
       <Carousel></Carousel>
