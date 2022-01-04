@@ -13,6 +13,9 @@ import RequireAuth from './components/ProtectedRoute/RequireAuth';
 import Home from './components/Home/Home';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard/Dashboard';
+import AddProduct from './components/Dashboard/AddProduct';
+import ManageProducts from './components/Dashboard/ManageProducts';
+import ManageOrders from './components/Dashboard/ManageOrders';
 
 function App() {
   return (
@@ -49,7 +52,11 @@ function App() {
           } />
           <Route path="/dashboard" element={<RequireAuth>
             <Dashboard />
-          </RequireAuth>} />
+          </RequireAuth>}>
+            <Route path="/dashboard" element={<ManageOrders />} />
+            <Route path="/dashboard/manageproducts" element={<ManageProducts />} />
+            <Route path="/dashboard/addproduct" element={<AddProduct />} />
+          </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

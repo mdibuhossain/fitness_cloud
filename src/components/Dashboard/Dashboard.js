@@ -11,10 +11,11 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import { Link, Outlet, Route, Routes, useMatch } from 'react-router-dom';
 import { useFirebase } from '../../Hooks/useFirebase';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../features/userSlice';
+import AddProduct from './AddProduct';
 // import Pay from '../Components/Dashboard/Pay';
 // import MyOrder from '../Components/Dashboard/MyOrder';
 // import AddReview from '../Components/Dashboard/AddReview';
@@ -27,7 +28,8 @@ import { logout } from '../../features/userSlice';
 const drawerWidth = 250;
 
 export default function Dashboard(props) {
-    // let { path, url } = useRouteMatch();
+    // let test = useMatch();
+    // console.log(test);
     const url = '';
     const { logOut } = useFirebase();
     const dispatch = useDispatch();
@@ -51,22 +53,17 @@ export default function Dashboard(props) {
                 {
                     // admin &&
                     <Box>
-                        <Link to={`${url}/manageallorders`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                        <Link to="" style={{ color: 'inherit', textDecoration: 'none' }}>
                             <ListItem button >
                                 <ListItemText primary="Manage all orders" />
                             </ListItem>
                         </Link>
-                        <Link to={`${url}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                        <Link to="manageproducts" style={{ color: 'inherit', textDecoration: 'none' }}>
                             <ListItem button >
                                 <ListItemText primary="Manage products" />
                             </ListItem>
                         </Link>
-                        <Link to={`${url}/addadmin`} style={{ color: 'inherit', textDecoration: 'none' }}>
-                            <ListItem button >
-                                <ListItemText primary="Make admin" />
-                            </ListItem>
-                        </Link>
-                        <Link to={`${url}/addproduct`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                        <Link to="addproduct" style={{ color: 'inherit', textDecoration: 'none' }}>
                             <ListItem button >
                                 <ListItemText primary="Add product" />
                             </ListItem>
@@ -75,23 +72,13 @@ export default function Dashboard(props) {
                 }
                 {
                     // !admin &&
-                    <Box>
-                        <Link to={`${url}/pay`} style={{ color: 'inherit', textDecoration: 'none' }}>
-                            <ListItem button >
-                                <ListItemText primary="Pay" />
-                            </ListItem>
-                        </Link>
-                        <Link to={`${url}`} style={{ color: 'inherit', textDecoration: 'none' }}>
-                            <ListItem button >
-                                <ListItemText primary="My orders" />
-                            </ListItem>
-                        </Link>
-                        <Link to={`${url}/review`} style={{ color: 'inherit', textDecoration: 'none' }}>
-                            <ListItem button >
-                                <ListItemText primary="Review" />
-                            </ListItem>
-                        </Link>
-                    </Box>
+                    // <Box>
+                    //     <Link to={`${url}/pay`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                    //         <ListItem button >
+                    //             <ListItemText primary="Pay" />
+                    //         </ListItem>
+                    //     </Link>
+                    // </Box>
                 }
             </List>
             <Divider />
@@ -167,6 +154,8 @@ export default function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
+
+                <Outlet />
 
                 {/* <Switch>
                     {!admin ?
