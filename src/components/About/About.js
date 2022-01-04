@@ -87,7 +87,7 @@ const About = () => {
                 Family-owned and run, we established Embody Fitness because we
                 wanted to help people change their lives in a significant,
                 positive and sustainable way. We know how difficult it can be to
-                stick to new fitness regimes – to put yourself first. With each
+                stick to new fitness regimes – to put yourself first. <br /> <br /> With each
                 challenge faced (work, travel, children, injury etc), your goals
                 seem less and less achievable. It can appear to be an uphill and
                 lonely struggle – almost too intimidating to even start.
