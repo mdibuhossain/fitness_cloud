@@ -5,6 +5,7 @@ import ClassDetails from "./components/ClassDetails/ClassDetails";
 import Contact from "./components/Contact/Contact";
 import Home from "./components/Home/Home";
 import Navigation from "./components/Navigation";
+import Schedule from "./components/Schedule/Schedule";
 import TrainingServices from "./components/TrainingServices/TrainingServices";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/classdetails" element={<ClassDetails></ClassDetails>}></Route>
           <Route path="/contact" element={<Contact></Contact>}></Route>
           <Route path="/about" element={<About></About>}></Route>
+          <Route path="/schedule" element={<Schedule></Schedule>}></Route>
         </Routes>
       </BrowserRouter>
     </>

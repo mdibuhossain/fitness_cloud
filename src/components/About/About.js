@@ -13,6 +13,8 @@ import team3 from "../../images/trainner/team-3.jpg";
 import team4 from "../../images/trainner/team-4.jpg";
 import signature from "../../images/About images/signature.png";
 import sideimage from "../../images/About images/side-image10.png";
+
+
 const About = () => {
   // call title function
   ChangeTitle("About Us");
