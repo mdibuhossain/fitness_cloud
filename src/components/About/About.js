@@ -85,7 +85,7 @@ const About = () => {
               }}
             >
               <Typography sx={{ pb: 4, textAlign: "justify" }} variant="body1">
-                Family-owned and run, we established Embody Fitness because we
+                Family-owned and, we established Embody Fitness because we
                 wanted to help people change their lives in a significant,
                 positive and sustainable way. We know how difficult it can be to
                 stick to new fitness regimes – to put yourself first. <br />{" "}
