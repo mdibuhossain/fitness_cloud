@@ -18,6 +18,7 @@ import { selectUser } from '../features/userSlice';
 import { selectIsLoading } from '../features/isloadingSlice';
 import { NavLink, useLocation } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
+import logo from '../assets/logo_single.png'
 
 const pages = [
     { title: 'Home', to: '/home' },
@@ -140,7 +141,7 @@ const Navigation = () => {
                             component="div"
                             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                         >
-                            FITNESS
+                            <img style={{ width: '30px' }} src={logo} alt='' />
                         </Typography>
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -183,7 +184,7 @@ const Navigation = () => {
                             component="div"
                             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                         >
-                            FITNESS
+                            <img style={{ width: '30px' }} src={logo} alt='' />
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {navList}
