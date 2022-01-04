@@ -87,7 +87,6 @@ const Navigation = () => {
         }
     }, [])
     const classes = useStyles();
-    console.log(navRef.current);
     return (
         <AppBar position="fixed" className={classes[navRef.current]}>
             <Container maxWidth="xl">
