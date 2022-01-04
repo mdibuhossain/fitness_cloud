@@ -11,12 +11,15 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import Test from './components/test/test';
 import RequireAuth from './components/ProtectedRoute/RequireAuth';
 import Home from './components/Home/Home';
+import Footer from './components/Footer';
+import { Box } from '@mui/system';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Navigation />
+        {/* <Box id="main-content"> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -27,6 +30,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
+        {/* </Box> */}
+        <Footer />
       </BrowserRouter>
     </div>
   );
