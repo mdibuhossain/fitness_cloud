@@ -11,11 +11,36 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import CircularProgress from '@mui/material/CircularProgress';
+import { useSelector } from 'react-redux';
+import { useFirebase } from '../Hooks/useFirebase';
+import { selectUser } from '../features/userSlice';
+import { selectIsLoading } from '../features/isloadingSlice';
+import { NavLink } from 'react-router-dom';
+import { makeStyles } from '@mui/styles';
 
-const pages = ['Home', 'Schedule', 'Classes', 'Contact us'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [
+    { title: 'Home', to: '/home' },
+    { title: 'Schedule', to: '/schedule' },
+    { title: 'Classes', to: '/classes' },
+    { title: 'Contact us', to: '/contact' }
+];
+
+const useStyles = makeStyles((theme) => ({
+    appBarTransparent: {
+        backgroundColor: 'rgba(13, 10, 10,0.8) !important',
+        transition: '0.3s ease-in !important'
+    },
+    appBarSolid: {
+        backgroundColor: 'rgb(13, 10, 10) !important',
+        transition: '0.3s ease-in-out !important'
+    }
+}));
 
 const Navigation = () => {
+    const { logOut } = useFirebase();
+    const user = useSelector(selectUser);
+    const isLoading = useSelector(selectIsLoading)
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -34,8 +59,77 @@ const Navigation = () => {
         setAnchorElUser(null);
     };
 
+    const [navBackground, setNavBackground] = React.useState('appBarTransparent');
+    const navRef = React.useRef();
+    navRef.current = navBackground;
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            const show = window.scrollY > 70;
+            if (show)
+                setNavBackground('appBarSolid')
+            else
+                setNavBackground('appBarTransparent')
+        }
+        document.addEventListener('scroll', handleScroll);
+        return () => {
+            document.removeEventListener('scroll', handleScroll);
+        }
+    }, [])
+
+    const navList = (
+        <>
+            <NavLink to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem
+                    onClick={handleCloseNavMenu}
+                >
+                    <Typography variant='button'>
+                        home
+                    </Typography>
+                </MenuItem>
+            </NavLink>
+            <NavLink to="/about" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem
+                    onClick={handleCloseNavMenu}
+                >
+                    <Typography variant='button'>
+                        About
+                    </Typography>
+                </MenuItem>
+            </NavLink>
+            <NavLink to="/schedule" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem
+                    onClick={handleCloseNavMenu}
+                >
+                    <Typography variant='button'>
+                        Schedule
+                    </Typography>
+                </MenuItem>
+            </NavLink>
+            <NavLink to="/trainingservices" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem
+                    onClick={handleCloseNavMenu}
+                >
+                    <Typography variant='button'>
+                        Classes
+                    </Typography>
+                </MenuItem>
+            </NavLink>
+            <NavLink to="/contact" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem
+                    onClick={handleCloseNavMenu}
+                >
+                    <Typography variant='button'>
+                        Contact us
+                    </Typography>
+                </MenuItem>
+            </NavLink>
+        </>
+    )
+
+    const classes = useStyles();
     return (
-        <AppBar position="static">
+        <AppBar position="fixed" className={classes[navRef.current]}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -44,7 +138,7 @@ const Navigation = () => {
                         component="div"
                         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                     >
-                        LOGO
+                        FITNESS
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -76,11 +170,9 @@ const Navigation = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
+                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                {navList}
+                            </Box>
                         </Menu>
                     </Box>
                     <Typography
@@ -89,49 +181,52 @@ const Navigation = () => {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
-                        LOGO
+                        FITNESS
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
-                        ))}
+                        {navList}
                     </Box>
-
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
+                    {
+                        user?.email ? (
+                            <Box sx={{ flexGrow: 0 }}>
+                                <Typography variant='button' sx={{ display: 'inline', mr: 2 }}>{user.displayName}</Typography>
+                                <Tooltip title="Open settings">
+                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                        {isLoading ? <CircularProgress color="inherit" />
+                                            : <Avatar alt="avatar" src={user.photoURL} />
+                                        }
+                                    </IconButton>
+                                </Tooltip>
+                                <Menu
+                                    sx={{ mt: '45px' }}
+                                    id="menu-appbar"
+                                    anchorEl={anchorElUser}
+                                    anchorOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}
+                                    keepMounted
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}
+                                    open={Boolean(anchorElUser)}
+                                    onClose={handleCloseUserMenu}
+                                >
+                                    <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/dashboard">
+                                        <MenuItem onClick={handleCloseUserMenu}>
+                                            Dashboard
+                                        </MenuItem>
+                                    </NavLink>
+                                    <Typography sx={{ color: 'inherit' }} onClick={logOut}>
+                                        <MenuItem onClick={handleCloseUserMenu}>
+                                            Log out
+                                        </MenuItem>
+                                    </Typography>
+                                </Menu>
+                            </Box>
+                        ) : <NavLink to='/login' style={{ textDecoration: 'none', color: 'inherit' }}><Button variant=''>Login</Button></NavLink>
+                    }
                 </Toolbar>
             </Container>
         </AppBar>
