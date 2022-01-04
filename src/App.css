@@ -6,9 +6,9 @@
 
 li{
   list-style-type: none;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
-li::before {
+/* li::before {
   content: "-";
   color: #f42828;
   font-weight: bold;
@@ -17,7 +17,7 @@ li::before {
   font-weight: 900;
   width: 1em;
   margin-left: -1em;
-}
+} */
 
 
 html, body {

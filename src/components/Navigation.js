@@ -16,7 +16,7 @@ import { useSelector } from 'react-redux';
 import { useFirebase } from '../Hooks/useFirebase';
 import { selectUser } from '../features/userSlice';
 import { selectIsLoading } from '../features/isloadingSlice';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 
 const pages = [
@@ -40,13 +40,14 @@ const useStyles = makeStyles((theme) => ({
 const Navigation = () => {
     const { logOut } = useFirebase();
     const user = useSelector(selectUser);
+    const navigate = useNavigate();
     const isLoading = useSelector(selectIsLoading)
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const settings = [
         {
             title: 'Dashboard',
-            action: null
+            action: () => navigate('/dashboard')
         },
         {
             title: 'Logout',
@@ -186,9 +187,11 @@ const Navigation = () => {
                                     onClose={handleCloseUserMenu}
                                 >
                                     {settings.map((setting, index) => (
-                                        <MenuItem sx={{ p: 0 }} key={index} onClick={handleCloseUserMenu}>
-                                            <Typography sx={{ width: 1, px: 2, py: 1 }} onClick={setting.action} textAlign="center">{setting.title}</Typography>
-                                        </MenuItem>
+                                        <Typography key={index} sx={{ color: 'inherit' }} onClick={setting.action}>
+                                            <MenuItem onClick={handleCloseUserMenu}>
+                                                {setting.title}
+                                            </MenuItem>
+                                        </Typography>
                                     ))}
                                 </Menu>
                             </Box>
