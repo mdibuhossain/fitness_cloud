@@ -12,31 +12,26 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
-import useAuth from '../Hooks/useAuth';
-import {
-    Switch,
-    Route,
-    Link,
-    useRouteMatch
-} from "react-router-dom";
-import Pay from '../Components/Dashboard/Pay';
-import MyOrder from '../Components/Dashboard/MyOrder';
-import AddReview from '../Components/Dashboard/AddReview';
-import AdminRoute from '../ProtectedRoute/AdminRoute';
-import MakeAdmin from '../Components/Dashboard/MakeAdmin';
-import AddProduct from '../Components/Dashboard/AddProduct';
-import ManageAllOrders from '../Components/Dashboard/ManageAllOrders';
-import ManageProducts from '../Components/Dashboard/ManageProducts';
+import { Link } from 'react-router-dom';
+// import Pay from '../Components/Dashboard/Pay';
+// import MyOrder from '../Components/Dashboard/MyOrder';
+// import AddReview from '../Components/Dashboard/AddReview';
+// import AdminRoute from '../ProtectedRoute/AdminRoute';
+// import MakeAdmin from '../Components/Dashboard/MakeAdmin';
+// import AddProduct from '../Components/Dashboard/AddProduct';
+// import ManageAllOrders from '../Components/Dashboard/ManageAllOrders';
+// import ManageProducts from '../Components/Dashboard/ManageProducts';
 
 const drawerWidth = 250;
 
 export default function Dashboard(props) {
-    let { path, url } = useRouteMatch();
+    // let { path, url } = useRouteMatch();
+    const url = '';
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    const { logOut, admin } = useAuth();
-    console.log(admin);
+    // const { logOut, admin } = useAuth();
+    // console.log(admin);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -53,7 +48,7 @@ export default function Dashboard(props) {
                     </ListItem>
                 </Link>
                 {
-                    admin &&
+                    // admin &&
                     <Box>
                         <Link to={`${url}/manageallorders`} style={{ color: 'inherit', textDecoration: 'none' }}>
                             <ListItem button >
@@ -78,7 +73,7 @@ export default function Dashboard(props) {
                     </Box>
                 }
                 {
-                    !admin &&
+                    // !admin &&
                     <Box>
                         <Link to={`${url}/pay`} style={{ color: 'inherit', textDecoration: 'none' }}>
                             <ListItem button >
@@ -101,7 +96,7 @@ export default function Dashboard(props) {
             <Divider />
             <List>
                 <ListItem button >
-                    <ListItemText primary={<Button onClick={logOut}>Log out</Button>} />
+                    <ListItemText primary={<Button >Log out</Button>} />
                 </ListItem>
             </List>
         </div>
@@ -172,8 +167,9 @@ export default function Dashboard(props) {
             >
                 <Toolbar />
 
-                <Switch>
-                    {!admin ? <Route exact path={path}>
+                {/* <Switch>
+                    {!admin ?
+                     <Route exact path={path}>
                         <MyOrder />
                     </Route> :
                         <AdminRoute exact path={`${path}`}>
@@ -195,7 +191,7 @@ export default function Dashboard(props) {
                     <AdminRoute exact path={`${path}/manageallorders`}>
                         <ManageAllOrders />
                     </AdminRoute>
-                </Switch>
+                </Switch> */}
 
 
             </Box>

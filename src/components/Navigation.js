@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSelector } from 'react-redux';
 import { useFirebase } from '../Hooks/useFirebase';
-import { selectUser } from '../features/userSlice';
+import { logout, selectUser } from '../features/userSlice';
 import { selectIsLoading } from '../features/isloadingSlice';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
@@ -44,16 +44,6 @@ const Navigation = () => {
     const isLoading = useSelector(selectIsLoading)
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const settings = [
-        {
-            title: 'Dashboard',
-            action: () => navigate('/dashboard')
-        },
-        {
-            title: 'Logout',
-            action: logOut
-        }
-    ];
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -87,6 +77,48 @@ const Navigation = () => {
             document.removeEventListener('scroll', handleScroll);
         }
     }, [])
+
+    const navList = (
+        <>
+            <NavLink to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem
+                    onClick={handleCloseNavMenu}
+                >
+                    <Typography variant='button'>
+                        home
+                    </Typography>
+                </MenuItem>
+            </NavLink>
+            <NavLink to="/schedule" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem
+                    onClick={handleCloseNavMenu}
+                >
+                    <Typography variant='button'>
+                        Schedule
+                    </Typography>
+                </MenuItem>
+            </NavLink>
+            <NavLink to="/classes" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem
+                    onClick={handleCloseNavMenu}
+                >
+                    <Typography variant='button'>
+                        Classes
+                    </Typography>
+                </MenuItem>
+            </NavLink>
+            <NavLink to="/contact" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem
+                    onClick={handleCloseNavMenu}
+                >
+                    <Typography variant='button'>
+                        Contact us
+                    </Typography>
+                </MenuItem>
+            </NavLink>
+        </>
+    )
+
     const classes = useStyles();
     return (
         <AppBar position="fixed" className={classes[navRef.current]}>
@@ -130,13 +162,9 @@ const Navigation = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page, index) => (
-                                <NavLink key={index} style={{ textDecoration: 'none', color: 'inherit' }} to={page.to}>
-                                    <MenuItem onClick={handleCloseNavMenu}>
-                                        {page.title}
-                                    </MenuItem>
-                                </NavLink>
-                            ))}
+                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                {navList}
+                            </Box>
                         </Menu>
                     </Box>
                     <Typography
@@ -148,16 +176,7 @@ const Navigation = () => {
                         FITNESS
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page, index) => (
-                            <NavLink key={index} to={page.to} style={{ textDecoration: 'none' }}>
-                                <Button
-                                    onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: 'white' }}
-                                >
-                                    {page.title}
-                                </Button>
-                            </NavLink>
-                        ))}
+                        {navList}
                     </Box>
                     {
                         user?.email ? (
@@ -186,13 +205,16 @@ const Navigation = () => {
                                     open={Boolean(anchorElUser)}
                                     onClose={handleCloseUserMenu}
                                 >
-                                    {settings.map((setting, index) => (
-                                        <Typography key={index} sx={{ color: 'inherit' }} onClick={setting.action}>
-                                            <MenuItem onClick={handleCloseUserMenu}>
-                                                {setting.title}
-                                            </MenuItem>
-                                        </Typography>
-                                    ))}
+                                    <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to="/dashboard">
+                                        <MenuItem onClick={handleCloseUserMenu}>
+                                            Dashboard
+                                        </MenuItem>
+                                    </NavLink>
+                                    <Typography sx={{ color: 'inherit' }} onClick={logOut}>
+                                        <MenuItem onClick={handleCloseUserMenu}>
+                                            Log out
+                                        </MenuItem>
+                                    </Typography>
                                 </Menu>
                             </Box>
                         ) : <NavLink to='/login' style={{ textDecoration: 'none', color: 'inherit' }}><Button variant=''>Login</Button></NavLink>
