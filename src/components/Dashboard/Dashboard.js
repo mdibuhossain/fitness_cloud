@@ -11,8 +11,10 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useFirebase } from '../../Hooks/useFirebase';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../features/userSlice';
 // import Pay from '../Components/Dashboard/Pay';
 // import MyOrder from '../Components/Dashboard/MyOrder';
 // import AddReview from '../Components/Dashboard/AddReview';
@@ -27,16 +29,15 @@ const drawerWidth = 250;
 export default function Dashboard(props) {
     // let { path, url } = useRouteMatch();
     const url = '';
+    const { logOut } = useFirebase();
+    const dispatch = useDispatch();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    // const { logOut, admin } = useAuth();
-    // console.log(admin);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-
     const drawer = (
         <div>
             <Toolbar />
@@ -95,8 +96,8 @@ export default function Dashboard(props) {
             </List>
             <Divider />
             <List>
-                <ListItem button >
-                    <ListItemText primary={<Button >Log out</Button>} />
+                <ListItem button onClick={logOut}>
+                    <ListItemText primary={<Typography variant='button' color={'primary'}>Log out</Typography>} />
                 </ListItem>
             </List>
         </div>

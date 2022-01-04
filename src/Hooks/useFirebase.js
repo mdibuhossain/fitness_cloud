@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { setIsLoading } from '../features/isloadingSlice';
-import { login } from '../features/userSlice';
+import { login, logout } from '../features/userSlice';
 import initAuth from '../Firebase/initAuth';
 
 initAuth();
@@ -54,10 +54,11 @@ export const useFirebase = () => {
     }
 
     const logOut = () => {
+        console.log('bal');
         dispatch(setIsLoading(true));
         signOut(auth)
             .then(() => {
-                dispatch(login({}))
+                dispatch(logout())
                 Redirect();
             }).catch(error => alert(error.message))
             .finally(() => dispatch(setIsLoading(false)))
@@ -66,18 +67,17 @@ export const useFirebase = () => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            dispatch(setIsLoading(true));
+            // dispatch(setIsLoading(true));
             if (user) {
                 dispatch(login({ ...user }))
-                dispatch(setIsLoading(false));
             }
             else {
                 dispatch(login({}))
-                dispatch(setIsLoading(false));
             }
+            dispatch(setIsLoading(false));
         })
         return () => unsubscribe;
-    }, [auth])
+    }, [])
 
     return {
         logIn,

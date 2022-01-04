@@ -14,9 +14,9 @@ import MenuItem from '@mui/material/MenuItem';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSelector } from 'react-redux';
 import { useFirebase } from '../Hooks/useFirebase';
-import { logout, selectUser } from '../features/userSlice';
+import { selectUser } from '../features/userSlice';
 import { selectIsLoading } from '../features/isloadingSlice';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 
 const pages = [
@@ -40,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
 const Navigation = () => {
     const { logOut } = useFirebase();
     const user = useSelector(selectUser);
-    const navigate = useNavigate();
     const isLoading = useSelector(selectIsLoading)
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
