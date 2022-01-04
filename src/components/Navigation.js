@@ -28,11 +28,11 @@ const pages = [
 
 const useStyles = makeStyles((theme) => ({
     appBarTransparent: {
-        backgroundColor: 'rgba(40, 50, 100,0.8) !important',
+        backgroundColor: 'rgba(13, 10, 10,0.6) !important',
         transition: '0.3s ease-in !important'
     },
     appBarSolid: {
-        backgroundColor: 'rgb(25, 118, 210) !important',
+        backgroundColor: 'rgb(13, 10, 10) !important',
         transition: '0.3s ease-in-out !important'
     }
 }));
@@ -65,7 +65,7 @@ const Navigation = () => {
 
     React.useEffect(() => {
         const handleScroll = () => {
-            const show = window.scrollY > 50;
+            const show = window.scrollY > 70;
             if (show)
                 setNavBackground('appBarSolid')
             else

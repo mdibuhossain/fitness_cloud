@@ -3,7 +3,7 @@ import React from 'react';
 
 const Home = () => {
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', border: '5px solid blue' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
             <Typography>
                 <Button>HOME</Button>
             </Typography>

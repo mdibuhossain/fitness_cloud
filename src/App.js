@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import LogIn from './components/Login/LogIn';
 import PageNotFound from './components/PageNotFound/PageNotFound';
-import Test from './components/test/test';
 import RequireAuth from './components/ProtectedRoute/RequireAuth';
 import Home from './components/Home/Home';
 import Footer from './components/Footer';
