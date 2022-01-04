@@ -17,6 +17,7 @@ import { useFirebase } from '../Hooks/useFirebase';
 import { selectUser } from '../features/userSlice';
 import { selectIsLoading } from '../features/isloadingSlice';
 import { NavLink } from 'react-router-dom';
+import { makeStyles } from '@mui/styles';
 
 const pages = [
     { title: 'Home', to: '/home' },
@@ -25,6 +26,15 @@ const pages = [
     { title: 'Contact us', to: '/contact' }
 ];
 
+const useStyles = makeStyles((theme) => ({
+    appBarTransparent: {
+        backgroundColor: 'rgba(25, 118, 210, 0.5) !important',
+    },
+    appBarSolid: {
+        backgroundColor: 'rgb(25, 118, 210) !important',
+        transition: '0.5s ease-in-out'
+    }
+}));
 
 const Navigation = () => {
     const { logOut } = useFirebase();
@@ -57,8 +67,28 @@ const Navigation = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const [navBackground, setNavBackground] = React.useState('appBarTransparent');
+    const navRef = React.useRef();
+    navRef.current = navBackground;
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            const show = window.scrollY > 50;
+            if (show)
+                setNavBackground('appBarSolid')
+            else
+                setNavBackground('appBarTransparent')
+        }
+        document.addEventListener('scroll', handleScroll);
+        return () => {
+            document.removeEventListener('scroll', handleScroll);
+        }
+    }, [])
+    const classes = useStyles();
+    console.log(navRef.current);
     return (
-        <AppBar position="absolute">
+        <AppBar position="fixed" className={classes[navRef.current]}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -100,8 +130,8 @@ const Navigation = () => {
                             }}
                         >
                             {pages.map((page, index) => (
-                                <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to={page.to}>
-                                    <MenuItem key={index} onClick={handleCloseNavMenu}>
+                                <NavLink key={index} style={{ textDecoration: 'none', color: 'inherit' }} to={page.to}>
+                                    <MenuItem onClick={handleCloseNavMenu}>
                                         {page.title}
                                     </MenuItem>
                                 </NavLink>
