@@ -12,7 +12,7 @@ const Schedule = () => {
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "90vh",
-    width:"100%",
+    width: "100%",
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
@@ -22,7 +22,7 @@ const Schedule = () => {
     <div>
       <div id="cover" style={banner}>
         <Container>
-          <Typography 
+          <Typography
             variant="h3"
             sx={{ textTransform: "uppercase", fontWeight: "bold", pb: 2 }}
           >
@@ -36,11 +36,11 @@ const Schedule = () => {
         </Container>
       </div>
       <Container>
-      <Grid>
-              <Grid sx={{py:8}} item lg={12} md={12} sm={12} xs={12}>
-                  <img style={{width:"100%"}} src={schedule} alt="" />
-              </Grid>
+        <Grid>
+          <Grid sx={{ py: 8 }} item lg={12} md={12} sm={12} xs={12}>
+            <img style={{ width: "100%" }} src={schedule} alt="" />
           </Grid>
+        </Grid>
       </Container>
     </div>
   );
