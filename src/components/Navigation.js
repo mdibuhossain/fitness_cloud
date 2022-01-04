@@ -28,12 +28,12 @@ const pages = [
 
 const useStyles = makeStyles((theme) => ({
     appBarTransparent: {
-        backgroundColor: 'rgba(25, 118, 210, 0.5) !important',
-        transition: '0.5s ease-in'
+        backgroundColor: 'rgba(40, 50, 100,0.8) !important',
+        transition: '0.3s ease-in !important'
     },
     appBarSolid: {
         backgroundColor: 'rgb(25, 118, 210) !important',
-        transition: '0.5s ease-in-out'
+        transition: '0.3s ease-in-out !important'
     }
 }));
 
