@@ -19,7 +19,7 @@ const Footer = () => {
                                     Lifting Training Center
                                 </Typography>
                                 <Typography variant='caption' sx={{ color: '#f42828' }}>View Information</Typography>
-                                <Box sx={{ display: 'flex' }}>
+                                <Box sx={{ display: 'flex', mt: 2 }}>
                                     <Box className="footer-icon">
                                         <FaFacebookF />
                                     </Box>
@@ -46,7 +46,7 @@ const Footer = () => {
                         <Typography sx={{ my: 3 }}>
                             We match you with the trainer best equipped to help you meet your specific goals and preferences Give yourself the kit you need to leave your competition in the dust.
                         </Typography>
-                        <Button variant="contained" color="primary">Become Memeber</Button>
+                        <Button variant="contained" sx={{ background: '#f42828 !important' }}>Become Memeber</Button>
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <Grid container>
@@ -82,7 +82,7 @@ const Footer = () => {
                     </Grid>
                 </Grid>
                 <Typography variant='overline' sx={{ mt: 2, display: 'inline-block' }}>
-                    © 2020 Quanca | Premium Gym Club
+                    © 2022 Quanca | Premium Gym Club
                 </Typography>
             </Container>
         </Box>

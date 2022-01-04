@@ -10,7 +10,7 @@ li{
 }
 li::before {
   content: "-";
-  color: red;
+  color: #f42828;
   font-weight: bold;
   display: inline-block; 
   font-size: 1.15rem;
@@ -41,8 +41,8 @@ html, body {
 }
 
 .footer-icon:hover{
-  background: red;
-  border: 1px solid red;
+  background: #f42828;
+  border: 1px solid #f42828;
   transition: 0.4s ease-in;
 }
 
