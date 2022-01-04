@@ -6,6 +6,7 @@
 
 li{
   list-style-type: none;
+  margin-bottom: 10px;
   /* margin-left: 20px; */
 }
 /* li::before {

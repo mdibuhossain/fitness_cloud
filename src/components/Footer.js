@@ -50,18 +50,23 @@ const Footer = () => {
                             <Button variant="contained" sx={{ background: '#f42828 !important' }}>Become Memeber</Button>
                         </Grid>
                         <Grid item xs={12} md={4}>
-                            <Grid container>
+                            <Grid container spacing={3}>
                                 <Grid item xs={12} sm={6}>
                                     <Box>
                                         <Typography variant='button' sx={{ fontSize: 25 }}>
                                             CAREERS
                                         </Typography>
-                                        <ul>
-                                            <li>text</li>
-                                            <li>text</li>
-                                            <li>text</li>
-                                            <li>text</li>
-                                            <li>text</li>
+                                        <ul style={{ marginTop: '24px' }}>
+                                            <li>
+                                                <Typography variant='button'>Receptionist</Typography></li>
+                                            <li>
+                                                <Typography variant='button'>Become Trainer</Typography></li>
+                                            <li>
+                                                <Typography variant='button'>Quanca Staff</Typography></li>
+                                            <li>
+                                                <Typography variant='button'>Management</Typography></li>
+                                            <li>
+                                                <Typography variant='button'>Finance</Typography></li>
                                         </ul>
                                     </Box>
                                 </Grid>
@@ -70,19 +75,17 @@ const Footer = () => {
                                         <Typography variant='button' sx={{ fontSize: 25 }}>
                                             MEMBERSHIP
                                         </Typography>
-                                        <ul>
-                                            <li>text</li>
-                                            <li>text</li>
-                                            <li>text</li>
-                                            <li>text</li>
-                                            <li>text</li>
+                                        <ul style={{ marginTop: '24px' }}>
+                                            <li><Typography variant='button'>Student Discount</Typography></li>
+                                            <li><Typography variant='button'>Term Membership</Typography></li>
+                                            <li><Typography variant='button'>Month-to-Month</Typography></li>
                                         </ul>
                                     </Box>
                                 </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Typography variant='overline' sx={{ mt: 2, display: 'inline-block' }}>
+                    <Typography variant='overline'>
                         © 2022 Quanca | Premium Gym Club
                     </Typography>
                 </Container>
