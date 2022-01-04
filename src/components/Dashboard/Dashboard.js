@@ -11,19 +11,9 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Link, Outlet, Route, Routes, useMatch } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { useFirebase } from '../../Hooks/useFirebase';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../features/userSlice';
-import AddProduct from './AddProduct';
-// import Pay from '../Components/Dashboard/Pay';
-// import MyOrder from '../Components/Dashboard/MyOrder';
-// import AddReview from '../Components/Dashboard/AddReview';
-// import AdminRoute from '../ProtectedRoute/AdminRoute';
-// import MakeAdmin from '../Components/Dashboard/MakeAdmin';
-// import AddProduct from '../Components/Dashboard/AddProduct';
-// import ManageAllOrders from '../Components/Dashboard/ManageAllOrders';
-// import ManageProducts from '../Components/Dashboard/ManageProducts';
 
 const drawerWidth = 250;
 

@@ -19,12 +19,6 @@ import { selectIsLoading } from '../features/isloadingSlice';
 import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 
-const pages = [
-    { title: 'Home', to: '/home' },
-    { title: 'Schedule', to: '/schedule' },
-    { title: 'Classes', to: '/classes' },
-    { title: 'Contact us', to: '/contact' }
-];
 
 const useStyles = makeStyles((theme) => ({
     appBarTransparent: {
