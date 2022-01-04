@@ -25,10 +25,6 @@ html, body {
   margin: 0;
 }
 
-#main-content{
-  min-height: 100vh;
-}
-
 .footer-icon{
   display: flex;
   justify-content: center;

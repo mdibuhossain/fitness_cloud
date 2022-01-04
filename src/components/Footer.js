@@ -1,10 +1,8 @@
-import { Button, Container, Grid, Icon, Typography } from '@mui/material';
+import { Button, Container, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaPinterestP } from 'react-icons/fa';
 import logo from '../assets/logo.png';
-
-const iconList = ['FaFacebookF', 'FaTwitter', 'FaInstagram', 'FaYoutube'];
 
 const Footer = () => {
     return (
