@@ -20,12 +20,6 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 import logo from '../assets/logo_single.png'
 
-const pages = [
-    { title: 'Home', to: '/home' },
-    { title: 'Schedule', to: '/schedule' },
-    { title: 'Classes', to: '/classes' },
-    { title: 'Contact us', to: '/contact' }
-];
 
 const useStyles = makeStyles((theme) => ({
     appBarTransparent: {
@@ -86,6 +80,15 @@ const Navigation = () => {
                 >
                     <Typography variant='button'>
                         home
+                    </Typography>
+                </MenuItem>
+            </NavLink>
+            <NavLink to="/about" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <MenuItem
+                    onClick={handleCloseNavMenu}
+                >
+                    <Typography variant='button'>
+                        About
                     </Typography>
                 </MenuItem>
             </NavLink>
