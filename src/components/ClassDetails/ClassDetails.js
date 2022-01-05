@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Grid, TextField, Typography } from "@mui/material";
 import detailsBanner from "../../images/home images/detailscover.jpg";
 import { ChangeTitle } from "../../utilities/TabFunction";
@@ -11,6 +11,7 @@ import { selectUser } from "../../features/userSlice";
 
 const ClassDetails = (props) => {
   const { _id } = useParams();
+  const [classStatus, setClassStatus] = useState(false);
   const course = useSelector(selectcourses);
   const user = useSelector(selectUser);
   const train = course.find(item => item._id === _id);
@@ -38,7 +39,9 @@ const ClassDetails = (props) => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        if (!data?.modifiedCount) {
+          alert("Alread enrolled");
+        }
       })
     e.preventDefault();
   }
