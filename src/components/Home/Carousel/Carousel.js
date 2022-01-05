@@ -43,7 +43,7 @@ const Carousel = () => {
               <Typography sx={{py:4}} variant="h6" color="white">
                 Experience our Revoulutionary J30 Classes
               </Typography>
-              <Link to="/trainingservices">
+              <Link to="/classdetails">
               <button className="slide-button">Discover More</button>
               </Link>
             </Container>
@@ -63,7 +63,7 @@ const Carousel = () => {
               <Typography sx={{py:4}} variant="h6" color="white">
                 Group Fitness Classes and Personal Training
               </Typography>
-              <Link to="/trainingservices">
+              <Link to="/classdetails">
               <button className="slide-button">Discover More</button>
               </Link>
             </Container>
@@ -83,7 +83,7 @@ const Carousel = () => {
               <Typography sx={{py:4}} variant="h6" color="white">
                 Profesional Heavy duty commercial guide
               </Typography>
-              <Link to="/trainingservices">
+              <Link to="/classdetails">
               <button className="slide-button">Discover More</button>
               </Link>
             </Container>
