@@ -17,8 +17,6 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import RequireAuth from './components/ProtectedRoute/RequireAuth';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard/Dashboard';
-import AddProduct from './components/Dashboard/AddProduct';
-import ManageProducts from './components/Dashboard/ManageProducts';
 import MyOrder from './components/Dashboard/MyOrder';
 import ScrollToTop from 'react-scroll-to-top';
 
@@ -42,8 +40,6 @@ function App() {
             <Dashboard />
           </RequireAuth>}>
             <Route path="/dashboard" element={<MyOrder />} />
-            <Route path="/dashboard/manageproducts" element={<ManageProducts />} />
-            <Route path="/dashboard/addproduct" element={<AddProduct />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>

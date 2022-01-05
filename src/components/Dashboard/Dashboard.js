@@ -11,28 +11,14 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Link, Outlet, Route, Routes, useMatch } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { useFirebase } from '../../Hooks/useFirebase';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../features/userSlice';
-import AddProduct from './AddProduct';
-// import Pay from '../Components/Dashboard/Pay';
-// import MyOrder from '../Components/Dashboard/MyOrder';
-// import AddReview from '../Components/Dashboard/AddReview';
-// import AdminRoute from '../ProtectedRoute/AdminRoute';
-// import MakeAdmin from '../Components/Dashboard/MakeAdmin';
-// import AddProduct from '../Components/Dashboard/AddProduct';
-// import ManageAllOrders from '../Components/Dashboard/ManageAllOrders';
-// import ManageProducts from '../Components/Dashboard/ManageProducts';
 
 const drawerWidth = 250;
 
 export default function Dashboard(props) {
-    // let test = useMatch();
-    // console.log(test);
-    const url = '';
     const { logOut } = useFirebase();
-    const dispatch = useDispatch();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -56,16 +42,6 @@ export default function Dashboard(props) {
                         <Link to="" style={{ color: 'inherit', textDecoration: 'none' }}>
                             <ListItem button >
                                 <ListItemText primary="My courses" />
-                            </ListItem>
-                        </Link>
-                        <Link to="manageproducts" style={{ color: 'inherit', textDecoration: 'none' }}>
-                            <ListItem button >
-                                <ListItemText primary="Manage products" />
-                            </ListItem>
-                        </Link>
-                        <Link to="addproduct" style={{ color: 'inherit', textDecoration: 'none' }}>
-                            <ListItem button >
-                                <ListItemText primary="Add product" />
                             </ListItem>
                         </Link>
                     </Box>
@@ -156,33 +132,6 @@ export default function Dashboard(props) {
                 <Toolbar />
 
                 <Outlet />
-
-                {/* <Switch>
-                    {!admin ?
-                     <Route exact path={path}>
-                        <MyOrder />
-                    </Route> :
-                        <AdminRoute exact path={`${path}`}>
-                            <ManageProducts />
-                        </AdminRoute>
-                    }
-                    <Route exact path={`${path}/pay`}>
-                        <Pay />
-                    </Route>
-                    <Route exact path={`${path}/review`}>
-                        <AddReview />
-                    </Route>
-                    <AdminRoute exact path={`${path}/addproduct`}>
-                        <AddProduct />
-                    </AdminRoute>
-                    <AdminRoute exact path={`${path}/addadmin`}>
-                        <MakeAdmin />
-                    </AdminRoute>
-                    <AdminRoute exact path={`${path}/manageallorders`}>
-                        <ManageAllOrders />
-                    </AdminRoute>
-                </Switch> */}
-
 
             </Box>
         </Box>
