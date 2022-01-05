@@ -13,14 +13,14 @@ const TrainingServices = () => {
   // call title function
   ChangeTitle("Classes");
   const training = useSelector(selectcourses);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    const url = `http://localhost:5000/courses`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => dispatch(setCourses(data)));
-  }, []);
+  // useEffect(() => {
+  //   const url = `http://localhost:5000/courses`;
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((data) => dispatch(setCourses(data)));
+  // }, []);
 
   const banner = {
     background: `url(${cover})`,

@@ -19,8 +19,18 @@ import Footer from './components/Footer';
 import Dashboard from './components/Dashboard/Dashboard';
 import MyOrder from './components/Dashboard/MyOrder';
 import ScrollToTop from 'react-scroll-to-top';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setCourses } from './features/coursesSlice';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const url = `http://localhost:5000/courses`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => dispatch(setCourses(data)));
+  }, []);
   return (
     <div className="App">
       <BrowserRouter>
