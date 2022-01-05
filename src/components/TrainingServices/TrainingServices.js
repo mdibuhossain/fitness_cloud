@@ -1,12 +1,11 @@
 import { Container, Grid, Typography } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import cover from '../../images/home images/slide03.jpg';
 import cover2 from '../../images/home images/help-light-img.jpg';
 import ClassCard from "../TrainingClass/ClassCard/ClassCard";
 import { ChangeTitle } from "../../utilities/TabFunction";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { selectcourses, setCourses } from "../../features/coursesSlice";
+import { selectcourses } from "../../features/coursesSlice";
 import { useSelector } from "react-redux";
 
 const TrainingServices = () => {
