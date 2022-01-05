@@ -14,7 +14,6 @@ const ClassDetails = (props) => {
   const course = useSelector(selectcourses);
   const user = useSelector(selectUser);
   const train = course.find(item => item._id === _id);
-  console.log(train);
   // call title function
   ChangeTitle("Details");
   const banner = {
@@ -27,6 +26,23 @@ const ClassDetails = (props) => {
     flexDirection: "column",
     color: "#fff",
   };
+
+  const handleEnrollCourse = (e) => {
+    const courseInfo = { email: user?.email, id: _id };
+    fetch('http://localhost:5000/users/enroll', {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(courseInfo)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+    e.preventDefault();
+  }
+
   return (
     <div>
       <div id="cover" style={banner}>
@@ -184,7 +200,7 @@ const ClassDetails = (props) => {
                   label="Your Message (optional)"
                   id="fullWidth"
                 />
-                <button type="submit" className="slide-button">
+                <button onClick={handleEnrollCourse} type="submit" className="slide-button">
                   $<span>10</span> Take Class +
                 </button>
               </Grid>
