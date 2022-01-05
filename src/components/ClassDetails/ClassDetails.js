@@ -30,7 +30,7 @@ const ClassDetails = (props) => {
 
   const handleEnrollCourse = (e) => {
     const courseInfo = { email: user?.email, id: _id };
-    fetch('http://localhost:5000/users/enroll', {
+    fetch('https://radiant-tor-26949.herokuapp.com/users/enroll', {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
@@ -42,6 +42,8 @@ const ClassDetails = (props) => {
         if (!data?.modifiedCount) {
           alert("Alread enrolled");
         }
+        else
+          alert("Course enrolled successfully");
       })
     e.preventDefault();
   }

@@ -30,7 +30,7 @@ const MyOrder = () => {
     const courses = useSelector(selectcourses);
     const [currentCourses, setCurrentCourses] = React.useState([]);
     React.useEffect(() => {
-        fetch(`http://localhost:5000/users/${user?.email}`)
+        fetch(`https://radiant-tor-26949.herokuapp.com/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setEnroll(data?.enroll))
     }, [user])
@@ -52,7 +52,7 @@ const MyOrder = () => {
         const postOrder = { id: { ...remainOrder }, email: user.email };
         console.log(postOrder);
         if (conf) {
-            fetch('http://localhost:5000/users/over_ride_enroll', {
+            fetch('https://radiant-tor-26949.herokuapp.com/users/over_ride_enroll', {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
