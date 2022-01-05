@@ -20,11 +20,13 @@ import Dashboard from './components/Dashboard/Dashboard';
 import AddProduct from './components/Dashboard/AddProduct';
 import ManageProducts from './components/Dashboard/ManageProducts';
 import MyOrder from './components/Dashboard/MyOrder';
+import ScrollToTop from 'react-scroll-to-top';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop smooth />
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
