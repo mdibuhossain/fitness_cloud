@@ -11,7 +11,7 @@ const Schedule = () => {
     background: `url(${cover})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    height: "90vh",
+    height: "100vh",
     width: "100%",
     display: "flex",
     justifyContent: "center",

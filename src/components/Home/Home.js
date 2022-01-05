@@ -52,12 +52,14 @@ const Home = () => {
             What is Roins ?
           </Typography>
           <Container>
-            <Grid sx={{ mx: "auto" }} xs={12} sm={12} md={6} lg={6}>
-              <Typography variant="subtitle2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquid, quia! Lorem ipsum dolor sit ame consectetur adipisicing
-                elit. Aliquid, quia!
-              </Typography>
+            <Grid container>
+              <Grid item sx={{ mx: "auto" }} xs={12} sm={12} md={6} lg={6}>
+                <Typography variant="subtitle2">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aliquid, quia! Lorem ipsum dolor sit ame consectetur adipisicing
+                  elit. Aliquid, quia!
+                </Typography>
+              </Grid>
             </Grid>
           </Container>
         </Box>

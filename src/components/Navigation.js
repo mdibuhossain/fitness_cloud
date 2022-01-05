@@ -18,7 +18,7 @@ import { selectUser } from '../features/userSlice';
 import { selectIsLoading } from '../features/isloadingSlice';
 import { NavLink, useLocation } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
-import logo from '../assets/logo_single.png'
+import logo from '../assets/logo.png';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -101,7 +101,7 @@ const Navigation = () => {
                     </Typography>
                 </MenuItem>
             </NavLink>
-            <NavLink to="/classdetails" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <NavLink to="/trainingservices" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <MenuItem
                     onClick={handleCloseNavMenu}
                 >
@@ -144,7 +144,7 @@ const Navigation = () => {
                             component="div"
                             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                         >
-                            <img style={{ width: '30px' }} src={logo} alt='' />
+                            <img style={{ width: '150px' }} src={logo} alt='' />
                         </Typography>
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -187,7 +187,7 @@ const Navigation = () => {
                             component="div"
                             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                         >
-                            <img style={{ width: '30px' }} src={logo} alt='' />
+                            <img style={{ width: '150px' }} src={logo} alt='' />
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {navList}

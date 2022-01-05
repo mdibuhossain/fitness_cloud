@@ -12,7 +12,7 @@ const Contact = () => {
     background: `url(${cover})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    height: "90vh",
+    height: "100vh",
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
