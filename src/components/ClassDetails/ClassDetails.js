@@ -4,8 +4,17 @@ import detailsBanner from "../../images/home images/detailscover.jpg";
 import { ChangeTitle } from "../../utilities/TabFunction";
 import { Box } from "@mui/system";
 import ProgressBar from "@ramonak/react-progress-bar";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectcourses } from "../../features/coursesSlice";
+import { selectUser } from "../../features/userSlice";
 
-const ClassDetails = () => {
+const ClassDetails = (props) => {
+  const { _id } = useParams();
+  const course = useSelector(selectcourses);
+  const user = useSelector(selectUser);
+  const train = course.find(item => item._id === _id);
+  console.log(train);
   // call title function
   ChangeTitle("Details");
   const banner = {
@@ -26,7 +35,7 @@ const ClassDetails = () => {
             variant="h3"
             sx={{ textTransform: "uppercase", fontWeight: "bold", pb: 2 }}
           >
-            ClassName <span style={{ color: "#f42828" }}> Details</span>
+            Class <span style={{ color: "#f42828" }}> Details</span>
           </Typography>
           <Typography variant="body2">
             Experience our revolutionary j30 classes
@@ -49,10 +58,10 @@ const ClassDetails = () => {
               }}
             >
               <Typography style={{ fontWeight: "bold" }} variant="h4">
-                STRENGTH + CONDITIONING
+                {train?.classname}
               </Typography>
               <Typography sx={{ pt: 2 }} variant="body1">
-                Smart + Effective Bodyweight Training.
+                {train?.tag}
               </Typography>
             </Grid>
             <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -73,8 +82,8 @@ const ClassDetails = () => {
               </Typography>
             </Grid>
           </Grid>
-          <div id="class-image">
-            <img style={{ width: "100%" }} src={detailsBanner} alt="" />
+          <div id="class-image" style={{ height: '500px', overflow: 'hidden' }}>
+            <img style={{ width: "100%", marginTop: '-150px' }} src={train?.image} alt="" />
           </div>
           <Grid sx={{ py: 8 }} container spacing={4}>
             <Grid
@@ -93,20 +102,10 @@ const ClassDetails = () => {
                 style={{ fontWeight: "bold", textTransform: "uppercase" }}
                 variant="h4"
               >
-                Name TRAINING
+                {train?.classname} TRAINING
               </Typography>
               <Typography sx={{ py: 2, textAlign: "justify" }} variant="body1">
-                Many women and some men too, use to worry that lifting weights
-                could make them look too muscly but this isn’t the case with
-                Strength & Conditioning. Focussing on low repetitions at a
-                higher weight builds long-length strength fibres and doesn’t
-                bulk.
-                <br /> <br />
-                Plus, the types of lifts carried out in Strength & Conditioning
-                are large compound lifts such as squats and pull-ups and these
-                types of total-body workouts are nothing like the large volume
-                workouts with multiple exercises per body part which became so
-                popular in gyms due to the influence of bodybuilding.
+                {train?.details}
               </Typography>
             </Grid>
             <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -163,25 +162,26 @@ const ClassDetails = () => {
           <form action="">
             <Grid container spacing={4}>
               <Grid item lg={6} md={6} sm={12} xs={12}>
-                <TextField fullWidth label="Course Name" id="fullWidth" />
+                <TextField value={train?.classname} fullWidth disabled id="fullWidth" />
                 <TextField
                   required
                   sx={{ my: 4 }}
                   fullWidth
                   label="Email"
                   id="fullWidth"
+                  disabled
+                  value={user.email}
                 />
-                <TextField fullWidth label="Schedule" id="fullWidth" />
+                <TextField fullWidth value={train?.schedule} disabled id="fullWidth" />
               </Grid>
               <Grid item lg={6} md={6} sm={12} xs={12}>
-                <TextField required fullWidth label="Phone" id="fullWidth" />
+                <TextField fullWidth label="Phone (optional)" id="fullWidth" />
                 <TextField
-                  required
                   sx={{ my: 4 }}
                   multiline
                   rows={4}
                   fullWidth
-                  label="Your Message"
+                  label="Your Message (optional)"
                   id="fullWidth"
                 />
                 <button type="submit" className="slide-button">
