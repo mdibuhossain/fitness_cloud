@@ -47,7 +47,7 @@ const Footer = () => {
                             <Typography sx={{ my: 3 }}>
                                 We match you with the trainer best equipped to help you meet your specific goals and preferences Give yourself the kit you need to leave your competition in the dust.
                             </Typography>
-                            <Button variant="contained" sx={{ background: '#f42828 !important', borderRadius:'0 !important', py: 3, px: 4 }}>Become Memeber</Button>
+                            <Button variant="contained" sx={{ background: '#f42828 !important', borderRadius:'0 !important', py: 2, px: 5 }}>Become Memeber</Button>
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <Grid container spacing={3}>
