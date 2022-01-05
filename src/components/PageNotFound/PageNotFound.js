@@ -27,7 +27,7 @@ const PageNotFound = () => {
                             <Typography>
                                 The Page You're Looking For Was Not Found
                             </Typography>
-                            <Button onClick={Redirect} style={{ display: 'flex', alignItems: 'center', fontWeight: '600', marginTop: '5px' }}><ArrowBackIosIcon /> <span>Go Back</span></Button>
+                            <Button onClick={Redirect} style={{ display: 'flex', alignItems: 'center', fontWeight: '600', marginTop: '5px' }}><ArrowBackIosIcon /> <span>Go Back to Home</span></Button>
                         </Box>
                     </Grid>
                 </Grid>

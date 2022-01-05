@@ -43,30 +43,30 @@ const Register = () => {
                         </Box>
                         <FormControl variant="standard">
                             <InputLabel>Full Name</InputLabel>
-                            <Input onBlur={handleUserInput} name="name" type="text" />
+                            <Input onChange={handleUserInput} value={userInput.name} name="name" type="text" />
                         </FormControl>
                         <FormControl variant="standard" sx={{ mt: 2 }}>
                             <InputLabel>Email</InputLabel>
-                            <Input onBlur={handleUserInput} name="email" type="email" />
+                            <Input onChange={handleUserInput} value={userInput.email} name="email" type="email" />
                         </FormControl>
                         <FormControl variant="standard" sx={{ mt: 2 }}>
                             <InputLabel>Password</InputLabel>
-                            <Input onBlur={handleUserInput} name="password" type="password" />
+                            <Input onChange={handleUserInput} value={userInput.password} name="password" type="password" />
                         </FormControl>
                         <FormControl variant="standard" sx={{ mt: 2 }}>
                             <InputLabel>Confirm Password</InputLabel>
-                            <Input onBlur={handleUserInput} name="confirmPassword" type="password" />
+                            <Input onChange={handleUserInput} value={userInput.confirmPassword} name="confirmPassword" type="password" />
                         </FormControl>
                         <FormControl variant="standard" sx={{ mt: 2 }}>
                             <InputLabel>Profile Photo URL (optional)</InputLabel>
-                            <Input onBlur={handleUserInput} name="photoURL" type="text" />
+                            <Input onChange={handleUserInput} value={userInput.photoURL} name="photoURL" type="text" />
                         </FormControl>
                         <Button type="submit" variant="contained" sx={{ mt: 5 }}>
                             {
                                 isLoading ? <CircularProgress color="inherit" size="25px" /> : 'Register'
                             }
                         </Button>
-                        <Typography variant='subtitle' sx={{ mt: 2 }}>Already have an account? <NavLink to="/">Sign in</NavLink></Typography>
+                        <Typography variant='subtitle' sx={{ mt: 2 }}>Already have an account? <NavLink to="/login">Sign in</NavLink></Typography>
                     </Box>
                 </form>
             </Box>
