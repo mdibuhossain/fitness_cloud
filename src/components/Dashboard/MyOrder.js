@@ -25,22 +25,6 @@ const MyOrder = () => {
     //         .then(data => setOrderList(data))
     // }, [user?.email, token, orderList])
 
-    // const handleCancelOrder = async (id) => {
-    //     const conf = await window.confirm('Are you sure want to delete your order?');
-    //     if (conf) {
-    //         const url = await fetch(`https://shielded-headland-50795.herokuapp.com/orders/${id}`, {
-    //             method: 'DELETE'
-    //         });
-    //         const res = await url.json();
-    //         if (res.deletedCount) {
-    //             const remainingOrders = orderList.filter(order => order._id !== id)
-    //             setOrderList(remainingOrders);
-    //         }
-    //     }
-    // }
-
-    // console.log(orderList);
-    // console.log(orderList);
     const user = useSelector(selectUser);
     const [enroll, setEnroll] = React.useState({});
     const courses = useSelector(selectcourses);
@@ -58,6 +42,33 @@ const MyOrder = () => {
         setCurrentCourses(newData);
     }, [enroll, courses])
     console.log(currentCourses);
+
+    const handleCancelOrder = async (id) => {
+        const conf = await window.confirm('Are you sure want to delete your order?');
+        let tempOrder = await currentCourses?.filter(item => item?._id !== id);
+        setCurrentCourses(tempOrder);
+        tempOrder = tempOrder.map(item => item?._id);
+        const remainOrder = await tempOrder.reduce((acc, curr) => (acc[curr] = 1, acc), {});
+        const postOrder = { id: { ...remainOrder }, email: user.email };
+        console.log(postOrder);
+        if (conf) {
+            fetch('http://localhost:5000/users/over_ride_enroll', {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(postOrder)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
+        }
+    }
+
+    // console.log(orderList);
+    // console.log(orderList);
+
     return (
         <>
             <Typography variant="h5" sx={{ my: 2 }}>My courses: {currentCourses.length}</Typography>
@@ -79,7 +90,7 @@ const MyOrder = () => {
                                 <TableCell component="th" scope="order?">{order?.classname}</TableCell>
                                 <TableCell align="left">{order?.schedule}</TableCell>
                                 <TableCell align="left">
-                                    <Button>Cancel</Button>
+                                    <Button onClick={() => handleCancelOrder(order?._id)} variant='contained' sx={{ background: '#F42828 !important' }}>Cancel</Button>
                                 </TableCell>
                             </TableRow>
                         ))}
