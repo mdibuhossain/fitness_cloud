@@ -12,7 +12,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import LogIn from './components/Login/LogIn';
+import LogIn from './components/Login/Login';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import RequireAuth from './components/ProtectedRoute/RequireAuth';
 import Footer from './components/Footer';
