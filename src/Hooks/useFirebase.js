@@ -20,6 +20,17 @@ export const useFirebase = () => {
         navigate(destination);
     }
 
+    const saveUser = (email, displayName, photoURL, method) => {
+        const user = { email, displayName, photoURL };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        }).then(data => console.log(data));
+    }
+
     const signWithGoogle = () => {
         dispatch(setIsLoading(true));
         const googleProvider = new GoogleAuthProvider();
@@ -39,6 +50,7 @@ export const useFirebase = () => {
                     displayName: name, photoURL
                 }).then(() => { })
                 dispatch(login({ displayName: name, email, photoURL }));
+                saveUser(email, name, photoURL, 'POST');
                 Redirect();
             }).catch(error => alert(error.message))
             .finally(() => dispatch(setIsLoading(false)))
