@@ -55,7 +55,7 @@ export default function Dashboard(props) {
                     <Box>
                         <Link to="" style={{ color: 'inherit', textDecoration: 'none' }}>
                             <ListItem button >
-                                <ListItemText primary="Manage all orders" />
+                                <ListItemText primary="My courses" />
                             </ListItem>
                         </Link>
                         <Link to="manageproducts" style={{ color: 'inherit', textDecoration: 'none' }}>
