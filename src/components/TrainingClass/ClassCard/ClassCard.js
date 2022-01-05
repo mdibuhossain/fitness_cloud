@@ -1,5 +1,6 @@
 import { Grid, Paper, Button, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 import class1 from "../../../images/home images/carousel-class02.jpg";
 import style from "./ClassCard.module.css";
 
@@ -15,9 +16,11 @@ const ClassCard = (props) => {
         >
           <img style={{ width: "100%" }} src={class1} alt="" />
           <div className={style.cardstyle}>
+            <Link to="/classdetails">
             <Button variant="contained" sx={{ color: "#fff", mt: 2 }}>
               Details
             </Button>
+            </Link>
           </div>
         </Paper>
         <Typography variant="h5" style={{fontWeight:"bold"}}>Training Name</Typography>
