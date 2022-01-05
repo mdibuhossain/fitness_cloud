@@ -86,7 +86,7 @@ const Footer = () => {
                         </Grid>
                     </Grid>
                     <Typography variant='overline'>
-                        © 2022 Quanca | Premium Gym Club
+                        © 2022 Fitness Cloud | Premium Gym Club
                     </Typography>
                 </Container>
             </Box>
