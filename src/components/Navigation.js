@@ -83,15 +83,6 @@ const Navigation = () => {
                     </Typography>
                 </MenuItem>
             </NavLink>
-            <NavLink to="/about" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <MenuItem
-                    onClick={handleCloseNavMenu}
-                >
-                    <Typography variant='button'>
-                        About
-                    </Typography>
-                </MenuItem>
-            </NavLink>
             <NavLink to="/schedule" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <MenuItem
                     onClick={handleCloseNavMenu}
