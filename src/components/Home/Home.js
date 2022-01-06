@@ -26,6 +26,7 @@ import icon8 from "../../images/home images/icon08.png";
 import { Box } from "@mui/system";
 import TrainingClass from "../TrainingClass/TrainingClass";
 import { ChangeTitle } from "../../utilities/TabFunction";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
   // call title function
@@ -154,7 +155,9 @@ const Home = () => {
                   Morning workouts are ideal for burning fat and losing weight, but afternoon workouts may give your performance a boost, since you’ll have eaten a meal or two by the time you get going. “Any time you eat, your blood sugar levels rise,” Hackney says. “Sugar in the form of blood glucose…is one of the things we need if we’re trying to work at a higher intensity.”
                 </Typography>
                 <div>
-                  <button className="slide-button">Check Time</button>
+                  <NavLink to="/schedule" style={{ textDecoration: 'none' }}>
+                    <button className="slide-button">Check Time</button>
+                  </NavLink>
                 </div>
               </div>
             </Grid>
