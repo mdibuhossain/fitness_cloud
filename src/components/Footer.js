@@ -2,7 +2,7 @@ import { Button, Container, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaPinterestP } from 'react-icons/fa';
-import { useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
 const Footer = () => {
@@ -47,7 +47,9 @@ const Footer = () => {
                             <Typography sx={{ my: 3 }}>
                                 We match you with the trainer best equipped to help you meet your specific goals and preferences Give yourself the kit you need to leave your competition in the dust.
                             </Typography>
-                            <Button variant="contained" sx={{ background: '#f42828 !important', borderRadius:'0 !important', py: 2, px: 5 }}>Become Memeber</Button>
+                            <NavLink to="/login" style={{ textDecoration: 'none' }}>
+                                <Button variant="contained" sx={{ background: '#f42828 !important', borderRadius: '0 !important', py: 2, px: 5 }}>Become Memeber</Button>
+                            </NavLink>
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <Grid container spacing={3}>

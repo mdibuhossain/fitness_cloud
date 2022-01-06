@@ -41,11 +41,15 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/trainingservices" element={<TrainingServices />}></Route>
-          <Route path="/classdetails/:_id" element={<ClassDetails />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/schedule" element={<Schedule />}></Route>
+          <Route path="/trainingservices" element={<TrainingServices />} />
+          <Route path="/classdetails/:_id" element={
+            <RequireAuth>
+              <ClassDetails />
+            </RequireAuth>
+          } />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/schedule" element={<Schedule />} />
           <Route path="/dashboard" element={<RequireAuth>
             <Dashboard />
           </RequireAuth>}>

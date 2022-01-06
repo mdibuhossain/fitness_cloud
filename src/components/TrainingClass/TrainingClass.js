@@ -1,18 +1,13 @@
 import { Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+import { selectcourses } from "../../features/coursesSlice";
 import sectionShape from "../../images/home images/section-title-shape.png";
 import ClassCard from "./ClassCard/ClassCard";
 
 const TrainingClass = () => {
-  const [training, setTraining] = useState([]);
-
-  useEffect(() => {
-    const url = `https://jsonplaceholder.typicode.com/users`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setTraining(data));
-  }, []);
+  const training = useSelector(selectcourses);
 
   return (
     <div>
@@ -36,9 +31,7 @@ const TrainingClass = () => {
         <Container>
           <Grid sx={{ mx: "auto" }} xs={12} sm={12} md={6} lg={6}>
             <Typography variant="subtitle2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
-              quia! Lorem ipsum dolor sit ame consectetur adipisicing elit.
-              Aliquid, quia!
+              Below are some of the services & features found at Powerhouse Gyms worldwide. For services available in your area, please visit our locations page to find your gym's unique offerings.
             </Typography>
           </Grid>
         </Container>

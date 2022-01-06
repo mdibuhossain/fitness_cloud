@@ -55,9 +55,7 @@ const Home = () => {
             <Grid container>
               <Grid item sx={{ mx: "auto" }} xs={12} sm={12} md={6} lg={6}>
                 <Typography variant="subtitle2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aliquid, quia! Lorem ipsum dolor sit ame consectetur adipisicing
-                  elit. Aliquid, quia!
+                  Strength equipment includes weights, dumbbells, barbells, body bars, kettlebars, resistance bands, and sandbags.
                 </Typography>
               </Grid>
             </Grid>
@@ -132,8 +130,8 @@ const Home = () => {
           </Grid>
         </Container>
       </div>
-      <div style={{backgroundColor:"#f1f1f1"}} id="time">
-        <Container sx={{ py: 10 , pb:14}}>
+      <div style={{ backgroundColor: "#f1f1f1" }} id="time">
+        <Container sx={{ py: 10, pb: 14 }}>
           <Grid container spacing={8}>
             <Grid item lg={6} md={6} sm={12} xs={12}>
               <div
@@ -142,27 +140,27 @@ const Home = () => {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
-                  height:"100%"
-                 
+                  height: "100%"
+
                 }}
               >
-                <Typography style={{ fontWeight: "bold",textTransform:"uppercase" }} variant="subtitle2">
+                <Typography style={{ fontWeight: "bold", textTransform: "uppercase" }} variant="subtitle2">
                   Work out on our Way
                 </Typography>
-                <Typography style={{ fontWeight: "bold",color:"#f42828",textTransform:"uppercase" }} variant="h4">
+                <Typography style={{ fontWeight: "bold", color: "#f42828", textTransform: "uppercase" }} variant="h4">
                   Work out on our Way
                 </Typography>
-                <Typography sx={{ py: 2 ,mt:2}} variant="subtitle2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum suscipit quia soluta, quo recusandae asperiores corrupti repellendus nam doloribus cupiditate!Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum suscipit quia soluta, quo recusandae asperiores corrupti repellendus nam doloribus cupiditate!
+                <Typography sx={{ py: 2, mt: 2 }} variant="subtitle2">
+                  Morning workouts are ideal for burning fat and losing weight, but afternoon workouts may give your performance a boost, since you’ll have eaten a meal or two by the time you get going. “Any time you eat, your blood sugar levels rise,” Hackney says. “Sugar in the form of blood glucose…is one of the things we need if we’re trying to work at a higher intensity.”
                 </Typography>
-               <div>
-               <button className="slide-button">Check Time</button>
-               </div>
+                <div>
+                  <button className="slide-button">Check Time</button>
+                </div>
               </div>
             </Grid>
             <Grid item lg={6} md={6} sm={12} xs={12}>
-              <div style={{ position: "relative",textAlign:"right" }}>
-                <img style={{ width: "90%"}} src={sideimage01} alt="" />
+              <div style={{ position: "relative", textAlign: "right" }}>
+                <img style={{ width: "90%" }} src={sideimage01} alt="" />
                 <div
                   style={{
                     width: "70%",
@@ -170,37 +168,37 @@ const Home = () => {
                     position: "absolute",
                     backgroundColor: "#000",
                     top: "20%",
-                    color:"#fff"
+                    color: "#fff"
                   }}
                 >
                   <List>
                     <ListItem>
                       <ListItemText primary="Monday" />
-                      <ListItemText sx={{color:"#f42828",textAlign:"right"}} primary="06:00 AM-21:00 PM" />
+                      <ListItemText sx={{ color: "#f42828", textAlign: "right" }} primary="06:00 AM-21:00 PM" />
                     </ListItem>
                     <ListItem>
                       <ListItemText primary="Tuesday" />
-                      <ListItemText sx={{color:"#f42828",textAlign:"right"}} primary="06:00 AM-21:00 PM" />
+                      <ListItemText sx={{ color: "#f42828", textAlign: "right" }} primary="06:00 AM-21:00 PM" />
                     </ListItem>
                     <ListItem>
                       <ListItemText primary="Wednesday" />
-                      <ListItemText sx={{color:"#f42828",textAlign:"right"}} primary="06:00 AM-21:00 PM" />
+                      <ListItemText sx={{ color: "#f42828", textAlign: "right" }} primary="06:00 AM-21:00 PM" />
                     </ListItem>
                     <ListItem>
                       <ListItemText primary="Thursday" />
-                      <ListItemText  sx={{color:"#f42828",textAlign:"right"}}primary="06:00 AM-21:00 PM" />
+                      <ListItemText sx={{ color: "#f42828", textAlign: "right" }} primary="06:00 AM-21:00 PM" />
                     </ListItem>
                     <ListItem>
                       <ListItemText primary="Friday" />
-                      <ListItemText sx={{color:"#f42828",textAlign:"right"}} primary="06:00 AM-21:00 PM" />
+                      <ListItemText sx={{ color: "#f42828", textAlign: "right" }} primary="06:00 AM-21:00 PM" />
                     </ListItem>
                     <ListItem>
                       <ListItemText primary="Saturday" />
-                      <ListItemText sx={{color:"#f42828",textAlign:"right"}} primary="06:00 AM-21:00 PM" />
+                      <ListItemText sx={{ color: "#f42828", textAlign: "right" }} primary="06:00 AM-21:00 PM" />
                     </ListItem>
                     <ListItem>
                       <ListItemText primary="Sunday" />
-                      <ListItemText sx={{color:"#f42828",textAlign:"right"}} primary="06:00 AM-21:00 PM" />
+                      <ListItemText sx={{ color: "#f42828", textAlign: "right" }} primary="06:00 AM-21:00 PM" />
                     </ListItem>
                   </List>
                 </div>
@@ -220,7 +218,7 @@ const Home = () => {
             spacing={4}
             sx={{
               py: 8,
-              pb:10,
+              pb: 10,
               alignItems: "center",
             }}
           >
@@ -312,31 +310,31 @@ const Home = () => {
           </Grid>
         </Container>
       </div>
-      <div id="membership" style={{backgroundColor:"#000"}}>
-        <Container sx={{py:10}}>
-          <Grid container spacing={8} sx={{textAlign:"center",mb:8}}>
-          <Grid item lg={6} md={6} sm={6} xs={12}>
-                <Box
-                sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}
-                >
-                  <img style={{width:"20%"}} src={icon7} alt="" />
-                  <Typography variant="h4" sx={{textTransform:"uppercase",color:"#fff",py:2}}>Team Membership</Typography>
-                  <Typography variant="body2" sx={{color:"#fff"}}>Unlimited access to you choosen gym and <br /> thousands of others at the same price or less <br /> plus online classes with Fit.</Typography>
-                </Box>
+      <div id="membership" style={{ backgroundColor: "#000" }}>
+        <Container sx={{ py: 10 }}>
+          <Grid container spacing={8} sx={{ textAlign: "center", mb: 8 }}>
+            <Grid item lg={6} md={6} sm={6} xs={12}>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}
+              >
+                <img style={{ width: "20%" }} src={icon7} alt="" />
+                <Typography variant="h4" sx={{ textTransform: "uppercase", color: "#fff", py: 2 }}>Team Membership</Typography>
+                <Typography variant="body2" sx={{ color: "#fff" }}>Unlimited access to you choosen gym and <br /> thousands of others at the same price or less <br /> plus online classes with Fit.</Typography>
+              </Box>
+            </Grid>
+            <Grid item lg={6} md={6} sm={6} xs={12}>
+              <Box
+                sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}
+              >
+                <img style={{ width: "20%" }} src={icon8} alt="" />
+                <Typography variant="h4" sx={{ textTransform: "uppercase", color: "#fff", py: 2 }}>month-to-month</Typography>
+                <Typography variant="body2" sx={{ color: "#fff" }}>Unlimited access to you choosen gym and <br /> thousands of others at the same price or less <br /> plus online classes with Fit.</Typography>
+              </Box>
+            </Grid>
           </Grid>
-          <Grid item lg={6} md={6} sm={6} xs={12}>
-          <Box
-                sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}
-                >
-                  <img style={{width:"20%"}} src={icon8} alt="" />
-                  <Typography variant="h4" sx={{textTransform:"uppercase",color:"#fff",py:2}}>month-to-month</Typography>
-                  <Typography variant="body2" sx={{color:"#fff"}}>Unlimited access to you choosen gym and <br /> thousands of others at the same price or less <br /> plus online classes with Fit.</Typography>
-                </Box>
-          </Grid>
-          </Grid>
-         <div style={{textAlign:"center"}}>
-         <button className="slide-button">Explore Our Passes</button>
-         </div>
+          <div style={{ textAlign: "center" }}>
+            <button className="slide-button">Explore Our Passes</button>
+          </div>
         </Container>
       </div>
     </div>

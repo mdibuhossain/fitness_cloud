@@ -15,7 +15,7 @@ const ClassCard = (props) => {
         >
           <img style={{ width: "100%" }} src={image} alt="" />
           <div className={style.cardstyle}>
-            <Link to={`/classdetails/${_id}`}>
+            <Link to={`/classdetails/${_id}`} style={{ textDecoration: 'none' }}>
               <Button variant="contained" sx={{ color: "#fff", mt: 2 }}>
                 Details
               </Button>
