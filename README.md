@@ -1,4 +1,5 @@
 # FitnessCloud Features
+## [Live Site](https://fitness-26c3f.web.app/)
 
 Our company focused on a Gym or Fitness website (single Page category website) using React, Redux, Firebase, react-router, node, express, MongoDB, etc.
 
@@ -45,8 +46,3 @@ Replace the default react favicon and give an icon for our website.
 * Used Firebase for authentication
 * We host our site on Firebase.
 * We host a server on Heroku.
-
-### Share Link:
-
-* Live Side: https://fitness-26c3f.web.app/
-* Server-Side Code : 
