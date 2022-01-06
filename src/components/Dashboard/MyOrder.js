@@ -45,13 +45,12 @@ const MyOrder = () => {
 
     const handleCancelOrder = async (id) => {
         const conf = await window.confirm('Are you sure want to delete your order?');
-        let tempOrder = await currentCourses?.filter(item => item?._id !== id);
-        setCurrentCourses(tempOrder);
-        tempOrder = tempOrder.map(item => item?._id);
-        const remainOrder = await tempOrder.reduce((acc, curr) => (acc[curr] = 1, acc), {});
-        const postOrder = { id: { ...remainOrder }, email: user.email };
-        console.log(postOrder);
         if (conf) {
+            let tempOrder = await currentCourses?.filter(item => item?._id !== id);
+            setCurrentCourses(tempOrder);
+            tempOrder = tempOrder.map(item => item?._id);
+            const remainOrder = await tempOrder.reduce((acc, curr) => (acc[curr] = 1, acc), {});
+            const postOrder = { id: { ...remainOrder }, email: user.email };
             fetch('https://radiant-tor-26949.herokuapp.com/users/over_ride_enroll', {
                 method: 'PUT',
                 headers: {
