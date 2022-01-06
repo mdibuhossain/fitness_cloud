@@ -13,7 +13,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link, Outlet } from 'react-router-dom';
 import { useFirebase } from '../../Hooks/useFirebase';
-import { useDispatch } from 'react-redux';
 
 const drawerWidth = 250;
 
