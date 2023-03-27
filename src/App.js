@@ -26,10 +26,10 @@ import { setCourses } from './features/coursesSlice';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    const url = `https://radiant-tor-26949.herokuapp.com/courses`;
+    const url = `${process.env.REACT_APP_API}/courses`;
     fetch(url)
       .then((res) => res.json())
-      .then((data) => dispatch(setCourses(data)));
+      .then((data) => dispatch(setCourses(data)))
   }, []);
   return (
     <div className="App">

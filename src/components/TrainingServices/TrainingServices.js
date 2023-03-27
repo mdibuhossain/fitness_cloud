@@ -12,7 +12,6 @@ const TrainingServices = () => {
   // call title function
   ChangeTitle("Classes");
   const training = useSelector(selectcourses);
-
   const banner = {
     background: `url(${cover})`,
     backgroundSize: "cover",
@@ -46,7 +45,7 @@ const TrainingServices = () => {
         <Container>
           <Grid container spacing={4} sx={{ py: 12 }}>
             {training.map((train) => (
-              <ClassCard key={train.id} train={train}></ClassCard>
+              <ClassCard key={train._id} train={train}></ClassCard>
             ))}
           </Grid>
         </Container>

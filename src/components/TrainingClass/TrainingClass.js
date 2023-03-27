@@ -29,7 +29,7 @@ const TrainingClass = () => {
           Top Training Classes
         </Typography>
         <Container>
-          <Grid sx={{ mx: "auto" }} xs={12} sm={12} md={6} lg={6}>
+          <Grid item sx={{ mx: "auto" }} xs={12} sm={12} md={6} lg={6}>
             <Typography variant="subtitle2">
               Below are some of the services & features found at Powerhouse Gyms worldwide. For services available in your area, please visit our locations page to find your gym's unique offerings.
             </Typography>
@@ -39,7 +39,7 @@ const TrainingClass = () => {
       <Container>
         <Grid container spacing={4} sx={{ py: 12 }}>
           {training.slice(1, 4).map((train) => (
-            <ClassCard key={train.id} train={train}></ClassCard>
+            <ClassCard key={train._id} train={train}></ClassCard>
           ))}
         </Grid>
       </Container>

@@ -55,7 +55,7 @@ const About = () => {
             WELCOME FROM JAMES MILLER, FOUNDER & CEO
           </Typography>
           <Container>
-            <Grid sx={{ mx: "auto" }} xs={12} sm={12} md={6} lg={6}>
+            <Grid item sx={{ mx: "auto" }} xs={12} sm={12} md={6} lg={6}>
               <Typography
                 sx={{
                   color: "#f42828",
@@ -121,7 +121,7 @@ const About = () => {
             Why join Us?
           </Typography>
           <Container>
-            <Grid sx={{ mx: "auto" }} xs={12} sm={12} md={6} lg={6}>
+            <Grid item sx={{ mx: "auto" }} xs={12} sm={12} md={6} lg={6}>
               <Typography variant="subtitle2">
                 World is committed to making participation in the event a
                 harassment free experience for everyone, regardless.
@@ -130,7 +130,7 @@ const About = () => {
           </Container>
         </Box>
         <Container sx={{ py: 10 }}>
-          <Grid style={{ textAlign: "center" }} container spacing={4}>
+          <Grid container style={{ textAlign: "center" }} spacing={4}>
             <Grid item lg={3} md={3} sm={6} xs={12}>
               <Paper sx={{ p: 2 }} elevation={2}>
                 <img
@@ -230,7 +230,7 @@ const About = () => {
             Personal Trainner
           </Typography>
           <Container>
-            <Grid sx={{ mx: "auto" }} xs={12} sm={12} md={6} lg={6}>
+            <Grid item sx={{ mx: "auto" }} xs={12} sm={12} md={6} lg={6}>
               <Typography variant="subtitle2">
                 World is committed to making participation in the event a
                 harassment free experience for everyone, regardless.
@@ -239,7 +239,7 @@ const About = () => {
           </Container>
         </Box>
         <Container sx={{ py: 10 }}>
-          <Grid style={{ textAlign: "center" }} container spacing={4}>
+          <Grid container style={{ textAlign: "center" }} spacing={4}>
             <Grid item lg={3} md={3} sm={6} xs={12}>
               <Paper elevation={2}>
                 <img style={{ width: "100%" }} src={team1} alt="" />

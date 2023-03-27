@@ -30,7 +30,7 @@ const ClassDetails = (props) => {
 
   const handleEnrollCourse = (e) => {
     const courseInfo = { email: user?.email, id: _id };
-    fetch('https://radiant-tor-26949.herokuapp.com/users/enroll', {
+    fetch(`${process.env.REACT_APP_API}/users/enroll`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
@@ -134,7 +134,7 @@ const ClassDetails = (props) => {
                 ENDURANCE
               </Typography>
               <ProgressBar
-                animateOnRender="true"
+                animateOnRender={true}
                 labelAlignment="outside"
                 labelColor="#f42828"
                 bgColor="#f42828"
@@ -145,7 +145,7 @@ const ClassDetails = (props) => {
                 CARDIO
               </Typography>
               <ProgressBar
-                animateOnRender="true"
+                animateOnRender={true}
                 labelAlignment="outside"
                 labelColor="#f42828"
                 bgColor="#f42828"
@@ -156,7 +156,7 @@ const ClassDetails = (props) => {
                 BODY COMPOSITION
               </Typography>
               <ProgressBar
-                animateOnRender="true"
+                animateOnRender={true}
                 labelAlignment="outside"
                 labelColor="#f42828"
                 bgColor="#f42828"
@@ -167,7 +167,7 @@ const ClassDetails = (props) => {
                 STRENCHT
               </Typography>
               <ProgressBar
-                animateOnRender="true"
+                animateOnRender={true}
                 labelAlignment="outside"
                 labelColor="#f42828"
                 bgColor="#f42828"

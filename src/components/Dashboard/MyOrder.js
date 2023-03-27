@@ -30,7 +30,7 @@ const MyOrder = () => {
     const courses = useSelector(selectcourses);
     const [currentCourses, setCurrentCourses] = React.useState([]);
     React.useEffect(() => {
-        fetch(`https://radiant-tor-26949.herokuapp.com/users/${user?.email}`)
+        fetch(`${process.env.REACT_APP_API}/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setEnroll(data?.enroll))
     }, [user])
@@ -41,7 +41,6 @@ const MyOrder = () => {
         }
         setCurrentCourses(newData);
     }, [enroll, courses])
-    console.log(currentCourses);
 
     const handleCancelOrder = async (id) => {
         const conf = await window.confirm('Are you sure want to delete your order?');
@@ -51,7 +50,7 @@ const MyOrder = () => {
             tempOrder = tempOrder.map(item => item?._id);
             const remainOrder = await tempOrder.reduce((acc, curr) => (acc[curr] = 1, acc), {});
             const postOrder = { id: { ...remainOrder }, email: user.email };
-            fetch('https://radiant-tor-26949.herokuapp.com/users/over_ride_enroll', {
+            fetch(`${process.env.REACT_APP_API}/users/over_ride_enroll`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
@@ -59,9 +58,7 @@ const MyOrder = () => {
                 body: JSON.stringify(postOrder)
             })
                 .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                })
+                .then(data => { })
         }
     }
 

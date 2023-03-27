@@ -15,20 +15,19 @@ export const useFirebase = () => {
     const dispatch = useDispatch();
 
     const Redirect = () => {
-        console.log(location);
         const destination = location?.state?.from?.pathname || '/';
         navigate(destination);
     }
 
     const saveUser = (email, displayName, photoURL, method) => {
         const user = { email, displayName, photoURL };
-        fetch('https://radiant-tor-26949.herokuapp.com/users', {
+        fetch(`${process.env.REACT_APP_API}/users`, {
             method: method,
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(user)
-        }).then(data => console.log(data));
+        }).then(data => { });
     }
 
     const signWithGoogle = () => {
@@ -67,7 +66,6 @@ export const useFirebase = () => {
     }
 
     const logOut = () => {
-        console.log('bal');
         dispatch(setIsLoading(true));
         signOut(auth)
             .then(() => {
